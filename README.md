@@ -1,4 +1,4 @@
-# Workout_App
+# workout_app
 
 A simple Workout App.
 
