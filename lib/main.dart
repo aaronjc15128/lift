@@ -61,9 +61,9 @@ class _AppState extends State<App> {
   void initState() {
     super.initState();
 
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,                 // top bar bg color
-      systemNavigationBarColor: Colors.pinkAccent,        // bottom bar bg color
+      systemNavigationBarColor: themeColors["Background"],  // bottom bar bg color
       systemNavigationBarIconBrightness: Brightness.light,  // bottom bar icon color
     ));
 
@@ -75,11 +75,10 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Workout App",
+      theme: ThemeData(scaffoldBackgroundColor: themeColors["Background"]),
       debugShowCheckedModeBanner: false,
 
       home: Scaffold(
-        backgroundColor: themeColors["Background"],
-        
         extendBodyBehindAppBar: true,
         extendBody: true,
         resizeToAvoidBottomInset: false,
@@ -97,40 +96,43 @@ class _AppState extends State<App> {
 
         bottomNavigationBar: PreferredSize(
           preferredSize: const Size.fromHeight(80),
-          child: BottomNavigationBar(
-            elevation: 0,
-            backgroundColor: themeColors["Background"],
-            selectedItemColor: themeColors["Accent"],
-            unselectedItemColor: themeColors["Text"],
-            selectedFontSize: 16,
-            unselectedFontSize: 14,
-            iconSize: 32,
-            
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.circle),
-                label: "History",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.circle),
-                label: "Split",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.circle),
-                label: "Workouts",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.circle),
-                label: "Exercises",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.circle),
-                label: "Stats",
-              ),
-            ],
-
-            currentIndex: navbarIndex,
-            onTap: navbarTap,
+          child: Theme(
+            data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+            child: BottomNavigationBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              selectedItemColor: themeColors["Accent"],
+              unselectedItemColor: themeColors["Text"],
+              selectedFontSize: 16,
+              unselectedFontSize: 14,
+              iconSize: 32,
+              
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.circle),
+                  label: "History",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.circle),
+                  label: "Split",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.circle),
+                  label: "Workouts",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.circle),
+                  label: "Exercises",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.circle),
+                  label: "Stats",
+                ),
+              ],
+          
+              currentIndex: navbarIndex,
+              onTap: navbarTap,
+            ),
           ),
         ),
 
