@@ -48,12 +48,54 @@ class _AppState extends State<App> {
 
 
   List<Widget> pages() => <Widget>[
-    Column(),
-    Column(),
-    Column(),
-    Column(),
-    Column(),
     
+    // History
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+
+      children: <Widget>[
+        Text("HISTORY Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
+      ],
+    ),
+
+    // Split
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Text("SPLIT Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
+      ],
+    ),
+
+    // Workouts
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+
+      children: <Widget>[
+        Text("WORKOUTS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"])),
+      ],
+    ),
+
+    // Exercises
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+
+      children: <Widget>[
+        Text("EXERCISES Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
+      ],
+    ),
+
+    // Stats
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Text("STATS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
+      ],
+    ),
 
   ];
 
@@ -100,7 +142,8 @@ class _AppState extends State<App> {
             data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
             child: BottomNavigationBar(
               elevation: 0,
-              backgroundColor: Colors.transparent,
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
               selectedItemColor: themeColors["Accent"],
               unselectedItemColor: themeColors["Text"],
               selectedFontSize: 16,
