@@ -117,7 +117,10 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Workout App",
-      theme: ThemeData(scaffoldBackgroundColor: themeColors["Background"]),
+      theme: ThemeData(
+        scaffoldBackgroundColor: themeColors["Background"],
+        fontFamily: "Inter",
+      ),
       debugShowCheckedModeBanner: false,
 
       home: Scaffold(
