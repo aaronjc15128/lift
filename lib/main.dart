@@ -155,23 +155,23 @@ class _AppState extends State<App> {
               
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.circle),
+                  icon: Icon(Icons.history_rounded),
                   label: "History",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.circle),
+                  icon: Icon(Icons.splitscreen_outlined),
                   label: "Split",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.circle),
+                  icon: Icon(Icons.monitor_weight_rounded),
                   label: "Workouts",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.circle),
+                  icon: Icon(Icons.sports_gymnastics_rounded),
                   label: "Exercises",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.circle),
+                  icon: Icon(Icons.bar_chart_rounded),
                   label: "Stats",
                 ),
               ],
