@@ -139,6 +139,48 @@ class _AppState extends State<App> {
           )
         ),
 
+        drawer: Drawer(
+          backgroundColor: themeColors["Background"],
+          child: Column(
+            children: <Widget>[
+              DrawerHeader(
+                child: Column(
+                  children: <Widget>[
+                    const SizedBox(height: 12),
+                    Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: const Image(
+                          image: AssetImage("assets/images/icon_512.png"),
+                          height: 48,
+                          width: 48,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Text("Workout App", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+                    const SizedBox(height: 3),
+                    Text("Created by Aaron Chauhan", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                  ],
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.attach_money_rounded, color: themeColors["Text"],),
+                title: Text("Donate", style: TextStyle(color: themeColors["Text"])),
+              ),
+              const Spacer(),
+              ListTile(
+                leading: Icon(Icons.settings_rounded, color: themeColors["Text"],),
+                title: Text("Settings", style: TextStyle(color: themeColors["Text"])),
+              ),
+              ListTile(
+                leading: Icon(Icons.info_outline_rounded, color: themeColors["Text"],),
+                title: Text("About", style: TextStyle(color: themeColors["Text"])),
+              ),
+            ],
+          ),
+        ),
+
         bottomNavigationBar: PreferredSize(
           preferredSize: const Size.fromHeight(80),
           child: Theme(
