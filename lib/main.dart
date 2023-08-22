@@ -302,26 +302,43 @@ class DonatePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 50),
-              Container(height: 80,
+              Container(
+                height: 80,
                 alignment: Alignment.center,
                 margin: const EdgeInsets.fromLTRB(95, 0, 95, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: themeColors["Accent"],
-                    textStyle: const TextStyle(fontSize: 16)
+                    textStyle: const TextStyle(fontSize: 16),
+                    backgroundColor: Colors.transparent,
                   ),
                   onPressed: () {
                     Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));
                   },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
-                      Text("  Donate Link", style: TextStyle(color: themeColors["Text"]))
-                    ],
-                  )
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [themeColors["Secondary"], themeColors["Accent"]],
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                      ),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
+                        const SizedBox(width: 8),
+                        Text("Donate Link", style: TextStyle(color: themeColors["Text"])),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+              )
+
+
+
+
             ],
           ),
         ),
@@ -329,7 +346,6 @@ class DonatePage extends StatelessWidget {
     );
   }
 }
-
 
 class SettingsPage extends StatelessWidget {
   final Map themeColors;
@@ -369,7 +385,6 @@ class SettingsPage extends StatelessWidget {
     );
   }
 }
-
 
 class AboutPage extends StatelessWidget {
   final Map themeColors;
@@ -426,7 +441,7 @@ class AboutPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 30, 10),
                 child: Text(
-                  "Line 1",
+                  "Voluptate enim nostrud occaecat exercitation pariatur velit elit occaecat nostrud magna anim occaecat do officia.",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15,  color: themeColors["Text"])
                 ),
@@ -434,7 +449,7 @@ class AboutPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 30, 10),
                 child: Text(
-                  "Line 2",
+                  "Ad magna in in dolore nulla laborum laborum quis quis ea ut nulla qui esse excepteur enim reprehenderit amet quis.",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: themeColors["Text"])
                 ),
@@ -442,7 +457,7 @@ class AboutPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 30, 10),
                 child: Text(
-                  "Line 3",
+                  "Mollit cupidatat dolore reprehenderit mollit aliquip sint adipisicing dolore excepteur mollit enim.",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: themeColors["Text"])
                 ),
@@ -450,7 +465,7 @@ class AboutPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                 child: Text(
-                  "Line 4",
+                  "Ad aliquip nisi fugiat aliqua id est commodo consequat in et eiusmod velit magna labore Officia aliquip deserunt ad est.",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: themeColors["Text"])
                 ),
