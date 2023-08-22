@@ -165,6 +165,13 @@ class _AppState extends State<App> {
                 ),
               ),
               ListTile(
+                leading: Icon(Icons.show_chart_rounded, color: themeColors["Text"],),
+                title: Text("Get PRO", style: TextStyle(color: themeColors["Text"])),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPage(themeColors: themeColors)));
+                },
+              ),
+              ListTile(
                 leading: Icon(Icons.attach_money_rounded, color: themeColors["Text"],),
                 title: Text("Donate", style: TextStyle(color: themeColors["Text"])),
                 onTap: () {
@@ -335,10 +342,6 @@ class DonatePage extends StatelessWidget {
                   ),
                 ),
               )
-
-
-
-
             ],
           ),
         ),
