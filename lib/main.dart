@@ -175,10 +175,16 @@ class _AppState extends State<App> {
               ListTile(
                 leading: Icon(Icons.settings_rounded, color: themeColors["Text"],),
                 title: Text("Settings", style: TextStyle(color: themeColors["Text"])),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage(themeColors: themeColors)));
+                },
               ),
               ListTile(
                 leading: Icon(Icons.info_outline_rounded, color: themeColors["Text"],),
                 title: Text("About", style: TextStyle(color: themeColors["Text"])),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPage(themeColors: themeColors)));
+                },
               ),
             ],
           ),
@@ -316,6 +322,198 @@ class DonatePage extends StatelessWidget {
                   )
                 ),
               ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class SettingsPage extends StatelessWidget {
+  final Map themeColors;
+  const SettingsPage({Key? key, required this.themeColors}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: "Workout App",
+      
+      home: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: themeColors["Background"],
+          iconTheme: IconThemeData(color: themeColors["Text"]),
+          title: Text("Settings", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_rounded)
+          ),
+        ),
+
+        body: Container(
+          color: themeColors["Background"],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(height: 30),
+              
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class AboutPage extends StatelessWidget {
+  final Map themeColors;
+  const AboutPage({Key? key, required this.themeColors}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: "Workout App",
+      
+      home: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: themeColors["Background"],
+          iconTheme: IconThemeData(color: themeColors["Text"]),
+          title: Text("About", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_rounded)
+          ),
+        ),
+
+        body: Container(
+          color: themeColors["Background"],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                      child: const Image(
+                        image: AssetImage("assets/images/icon_512.png"),
+                        height: 48,
+                        width: 48,
+                      ),
+                  ),
+                  const SizedBox(width: 12),
+                  Column(
+                    children: <Widget>[
+                      Text("Workout App", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+                      const SizedBox(height: 3),
+                      Text("Created by Aaron Chauhan", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
+                    ]
+                  )
+                ],
+              ),
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 10),
+                child: Text(
+                  "Line 1",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15,  color: themeColors["Text"])
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 10),
+                child: Text(
+                  "Line 2",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: themeColors["Text"])
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 10),
+                child: Text(
+                  "Line 3",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: themeColors["Text"])
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Text(
+                  "Line 4",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: themeColors["Text"])
+                ),
+              ),
+              const SizedBox(height: 50),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("App:", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
+                        tooltip: "Google Play Store",
+                        icon: Icon(Icons.store_mall_directory_rounded,
+                        color: themeColors["Text"])
+                      ),
+
+                      IconButton(
+                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
+                        tooltip: "Apple App Store",
+                        icon: Icon(Icons.store_mall_directory_rounded,
+                        color: themeColors["Text"])
+                      )
+                    ],
+                  )
+                ]
+              ),
+              const SizedBox(height: 30),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("Socials:", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
+                        tooltip: "Email",
+                        icon: Icon(Icons.email_outlined,
+                        color: themeColors["Text"])
+                      ),
+
+                      IconButton(
+                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://github.com/aaronjc15128/workout_app"));},
+                        tooltip: "GitHub",
+                        icon: Icon(Icons.code_rounded,
+                        color: themeColors["Text"])
+                      ),
+
+                      IconButton(
+                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));}, 
+                        tooltip: "Donate", 
+                        icon: Icon(Icons.attach_money_rounded, 
+                        color: themeColors["Text"])
+                      )
+                    ],
+                  )
+                ]
+              ),
+              const SizedBox(height: 70),
+              Text("v0.0.0", style: TextStyle(fontSize: 12, color: themeColors["Text"])),
             ],
           ),
         ),
