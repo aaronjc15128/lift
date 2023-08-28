@@ -1,6 +1,6 @@
 {
-    "name": "workout_app",
-    "short_name": "workout_app",
+    "name": "lift",
+    "short_name": "lift",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
