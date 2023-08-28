@@ -1,3 +1,6 @@
+![Logo](assets/images/github.png)
+
+
 # Lift
 
 A simple workout app.
