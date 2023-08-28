@@ -28,9 +28,11 @@ class SettingsPage extends StatelessWidget {
           color: themeColors["Background"],
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            
             children: <Widget>[
               const SizedBox(height: 30),
-              
+              Text("SETTINGS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
             ],
           ),
         ),
