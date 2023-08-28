@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'mainpages/history.dart';
+import 'mainpages/split.dart';
+import 'mainpages/workouts.dart';
+import 'mainpages/exercises.dart';
+import 'mainpages/stats.dart';
+
 import 'subpages/getpro.dart';
 import 'subpages/donate.dart';
 import 'subpages/settings.dart';
@@ -55,55 +61,11 @@ class _AppState extends State<App> {
 
 
   List<Widget> pages() => <Widget>[
-    
-    // History
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-
-      children: <Widget>[
-        Text("HISTORY Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
-      ],
-    ),
-
-    // Split
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Text("SPLIT Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
-      ],
-    ),
-
-    // Workouts
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-
-      children: <Widget>[
-        Text("WORKOUTS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"])),
-      ],
-    ),
-
-    // Exercises
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-
-      children: <Widget>[
-        Text("EXERCISES Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
-      ],
-    ),
-
-    // Stats
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        Text("STATS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
-      ],
-    ),
-
+    HistoryPage(themeColors: themeColors),
+    SplitPage(themeColors: themeColors),
+    WorkoutsPage(themeColors: themeColors),
+    ExercisesPage(themeColors: themeColors),
+    StatsPage(themeColors: themeColors),
   ];
 
   @override
