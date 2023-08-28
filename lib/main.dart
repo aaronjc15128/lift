@@ -168,18 +168,22 @@ class _AppState extends State<App> {
           ),
         ),
 
-        bottomNavigationBar: PreferredSize(
-          preferredSize: const Size.fromHeight(80),
+        bottomNavigationBar: Container(
+          height: 90,
+          margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+          decoration: BoxDecoration(
+            color: themeColors["Box"],
+            borderRadius: const BorderRadius.all(Radius.circular(25))
+          ),
           child: Theme(
             data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
             child: BottomNavigationBar(
               elevation: 0,
               showSelectedLabels: true,
-              showUnselectedLabels: true,
+              showUnselectedLabels: false,
               selectedItemColor: themeColors["Accent"],
               unselectedItemColor: themeColors["Text"],
               selectedFontSize: 16,
-              unselectedFontSize: 14,
               iconSize: 32,
               
               items: const <BottomNavigationBarItem>[
