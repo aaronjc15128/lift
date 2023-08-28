@@ -49,12 +49,14 @@ class _AppState extends State<App> {
     "Box"         : const Color(0x33555555),
   };
 
-  
+  List appbarTexts = ["History", "Split", "Workouts", "Exercises", "Stats"];
+  String appbarText = "Workouts";
   int navbarIndex = 2;
 
   void navbarTap(int index) {
     setState(() {
       navbarIndex = index;
+      appbarText = appbarTexts[index];
     });
   }
 
@@ -103,7 +105,7 @@ class _AppState extends State<App> {
             elevation: 0,
             backgroundColor: themeColors["Background"],
             iconTheme: IconThemeData(color: themeColors["Text"]),
-            title: Text("Workouts", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+            title: Text(appbarText, style: TextStyle(fontSize: 22, color: themeColors["Text"])),
             centerTitle: true,
           )
         ),
