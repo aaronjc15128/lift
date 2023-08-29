@@ -46,9 +46,9 @@ class AboutPage extends StatelessWidget {
                   const SizedBox(width: 12),
                   Column(
                     children: <Widget>[
-                      Text("Workout App", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+                      Text("Lift", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
                       const SizedBox(height: 3),
-                      Text("Created by Aaron Chauhan", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
+                      Text("Aaron Chauhan", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
                     ]
                   )
                 ],
@@ -127,7 +127,7 @@ class AboutPage extends StatelessWidget {
                       ),
 
                       IconButton(
-                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://github.com/aaronjc15128/workout_app"));},
+                        onPressed: (){Clipboard.setData(const ClipboardData(text: "https://github.com/aaronjc15128/lift"));},
                         tooltip: "GitHub",
                         icon: Icon(Icons.code_rounded,
                         color: themeColors["Text"])
