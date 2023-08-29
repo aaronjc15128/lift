@@ -70,14 +70,17 @@ class _AppState extends State<App> {
     StatsPage(themeColors: themeColors),
   ];
 
+
+
   @override
   void initState() {
     super.initState();
 
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,                 // top bar bg color
-      systemNavigationBarColor: themeColors["Background"],  // bottom bar bg color
-      systemNavigationBarIconBrightness: Brightness.light,  // bottom bar icon color
+      statusBarColor: Colors.black.withOpacity(0.002), 
+      systemNavigationBarColor: Colors.black.withOpacity(0.002),
+      systemNavigationBarIconBrightness: Brightness.light,
     ));
 
     // inits go here
@@ -97,13 +100,12 @@ class _AppState extends State<App> {
       home: Scaffold(
         extendBodyBehindAppBar: true,
         extendBody: true,
-        resizeToAvoidBottomInset: false,
         
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(80),
           child: AppBar(
             elevation: 0,
-            backgroundColor: themeColors["Background"],
+            backgroundColor: Colors.transparent,
             iconTheme: IconThemeData(color: themeColors["Text"]),
             title: Text(appbarText, style: TextStyle(fontSize: 22, color: themeColors["Text"])),
             centerTitle: true,
@@ -168,54 +170,66 @@ class _AppState extends State<App> {
           ),
         ),
 
-        bottomNavigationBar: Container(
-          height: 90,
-          margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-          decoration: BoxDecoration(
-            color: themeColors["Box"],
-            borderRadius: const BorderRadius.all(Radius.circular(25))
-          ),
-          child: Theme(
-            data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-            child: BottomNavigationBar(
-              elevation: 0,
-              showSelectedLabels: true,
-              showUnselectedLabels: false,
-              selectedItemColor: themeColors["Accent"],
-              unselectedItemColor: themeColors["Text"],
-              selectedFontSize: 16,
-              iconSize: 32,
-              
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.history_rounded),
-                  label: "History",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.splitscreen_outlined),
-                  label: "Split",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.monitor_weight_rounded),
-                  label: "Workouts",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.sports_gymnastics_rounded),
-                  label: "Exercises",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.bar_chart_rounded),
-                  label: "Stats",
-                ),
-              ],
-          
-              currentIndex: navbarIndex,
-              onTap: navbarTap,
+        bottomNavigationBar: SafeArea(
+          bottom: true,
+          child: Container(
+            height: 90,
+            margin: const EdgeInsets.fromLTRB(15, 0, 15, 10),
+            decoration: BoxDecoration(
+              color: themeColors["Box"],
+              borderRadius: const BorderRadius.all(Radius.circular(25))
+            ),
+            child: Theme(
+              data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+              child: BottomNavigationBar(
+                elevation: 0,
+                showSelectedLabels: true,
+                showUnselectedLabels: false,
+                selectedItemColor: themeColors["Accent"],
+                unselectedItemColor: themeColors["Text"],
+                selectedFontSize: 16,
+                iconSize: 32,
+                
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.history_rounded),
+                    label: "History",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.splitscreen_outlined),
+                    label: "Split",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.monitor_weight_rounded),
+                    label: "Workouts",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.sports_gymnastics_rounded),
+                    label: "Exercises",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.bar_chart_rounded),
+                    label: "Stats",
+                  ),
+                ],
+            
+                currentIndex: navbarIndex,
+                onTap: navbarTap,
+              ),
             ),
           ),
         ),
 
-        body: pages()[navbarIndex],
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [themeColors["Secondary"], themeColors["Accent"]],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            )
+          ),
+          child: pages()[navbarIndex]
+        )
       )
     );
   }
