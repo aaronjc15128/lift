@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'background.dart';
+
 import 'mainpages/history.dart';
 import 'mainpages/split.dart';
 import 'mainpages/workouts.dart';
@@ -220,16 +222,7 @@ class _AppState extends State<App> {
           ),
         ),
 
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [themeColors["Secondary"], themeColors["Accent"]],
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-            )
-          ),
-          child: pages()[navbarIndex]
-        )
+        body: Background(page: pages()[navbarIndex]),
       )
     );
   }
