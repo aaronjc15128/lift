@@ -3,7 +3,7 @@
 
 # Lift
 
-A simple workout app.
+Same system, re-imagined.
 
 
 ## Authors
