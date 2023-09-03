@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../background.dart';
 
 class DonatePage extends StatelessWidget {
   final Map themeColors;
@@ -12,9 +13,11 @@ class DonatePage extends StatelessWidget {
       title: "Workout App",
       
       home: Scaffold(
+        extendBodyBehindAppBar: true,
+
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: themeColors["Background"],
+          backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(color: themeColors["Text"]),
           title: Text("Donate", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
           centerTitle: true,
@@ -26,12 +29,11 @@ class DonatePage extends StatelessWidget {
           ),
         ),
 
-        body: Container(
-          color: themeColors["Background"],
-          child: Column(
+        body: Background(
+          page: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(height: 30),
+              const SizedBox(height: 80),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30, 0, 30, 12),
                 child: Text(

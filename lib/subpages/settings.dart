@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../background.dart';
+
 class SettingsPage extends StatelessWidget {
   final Map themeColors;
   const SettingsPage({Key? key, required this.themeColors}) : super(key: key);
@@ -10,9 +12,11 @@ class SettingsPage extends StatelessWidget {
       title: "Workout App",
       
       home: Scaffold(
+        extendBodyBehindAppBar: true,
+
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: themeColors["Background"],
+          backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(color: themeColors["Text"]),
           title: Text("Settings", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
           centerTitle: true,
@@ -24,14 +28,13 @@ class SettingsPage extends StatelessWidget {
           ),
         ),
 
-        body: Container(
-          color: themeColors["Background"],
-          child: Column(
+        body: Background(
+          page: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             
             children: <Widget>[
-              const SizedBox(height: 30),
+              const SizedBox(height: 80),
               Text("SETTINGS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
             ],
           ),
