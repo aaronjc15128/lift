@@ -11,6 +11,7 @@ class DonatePage extends StatelessWidget {
   Widget build(BuildContext context){
     return MaterialApp(
       title: "Workout App",
+      theme: ThemeData(fontFamily: "Inter"),
       
       home: Scaffold(
         extendBodyBehindAppBar: true,
