@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../background.dart';
 
 class AboutPage extends StatelessWidget {
   final Map themeColors;
@@ -12,9 +13,11 @@ class AboutPage extends StatelessWidget {
       title: "Workout App",
       
       home: Scaffold(
+        extendBodyBehindAppBar: true,
+
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: themeColors["Background"],
+          backgroundColor: Colors.transparent,
           iconTheme: IconThemeData(color: themeColors["Text"]),
           title: Text("About", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
           centerTitle: true,
@@ -26,12 +29,11 @@ class AboutPage extends StatelessWidget {
           ),
         ),
 
-        body: Container(
-          color: themeColors["Background"],
-          child: Column(
+        body: Background(
+          page: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(height: 30),
+              const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -100,7 +102,7 @@ class AboutPage extends StatelessWidget {
                         icon: Icon(Icons.store_mall_directory_rounded,
                         color: themeColors["Text"])
                       ),
-
+        
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
                         tooltip: "Apple App Store",
@@ -125,14 +127,14 @@ class AboutPage extends StatelessWidget {
                         icon: Icon(Icons.email_outlined,
                         color: themeColors["Text"])
                       ),
-
+        
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://github.com/aaronjc15128/lift"));},
                         tooltip: "GitHub",
                         icon: Icon(Icons.code_rounded,
                         color: themeColors["Text"])
                       ),
-
+        
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));}, 
                         tooltip: "Donate", 
