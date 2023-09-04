@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../themeColors.dart';
 import '../background.dart';
 
 class DonatePage extends StatelessWidget {
-  final Map themeColors;
-  const DonatePage({Key? key, required this.themeColors}) : super(key: key);
+  const DonatePage({super.key});
 
   @override
   Widget build(BuildContext context){

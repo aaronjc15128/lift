@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../themeColors.dart';
 import '../background.dart';
 
 class SettingsPage extends StatelessWidget {
-  final Map themeColors;
-  const SettingsPage({Key? key, required this.themeColors}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context){

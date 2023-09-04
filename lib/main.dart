@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'themeColors.dart';
 import 'background.dart';
 
 import 'mainpages/history.dart';
@@ -41,15 +42,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  Map themeColors = {
-    "Text"        : const Color(0xFFFFFFFF),
-    "Background"  : const Color(0xFF0F0F0F),
-    "Primary"     : const Color(0xFFB996F3),
-    "Secondary"   : const Color(0xFF47346B),
-    "Accent"      : const Color(0xFFF64B79),
-
-    "Box"         : const Color(0x33555555),
-  };
+  
 
   List appbarTexts = ["History", "Split", "Workouts", "Exercises", "Stats"];
   String appbarText = "Workouts";
@@ -139,14 +132,14 @@ class _AppState extends State<App> {
                 leading: Icon(Icons.show_chart_rounded, color: themeColors["Text"],),
                 title: Text("Get PRO", style: TextStyle(color: themeColors["Text"])),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => GetProPage(themeColors: themeColors)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const GetProPage()));
                 },
               ),
               ListTile(
                 leading: Icon(Icons.attach_money_rounded, color: themeColors["Text"],),
                 title: Text("Donate", style: TextStyle(color: themeColors["Text"])),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => DonatePage(themeColors: themeColors)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DonatePage()));
                 },
               ),
               const Spacer(),
@@ -154,14 +147,14 @@ class _AppState extends State<App> {
                 leading: Icon(Icons.settings_rounded, color: themeColors["Text"],),
                 title: Text("Settings", style: TextStyle(color: themeColors["Text"])),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage(themeColors: themeColors)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
                 },
               ),
               ListTile(
                 leading: Icon(Icons.info_outline_rounded, color: themeColors["Text"],),
                 title: Text("About", style: TextStyle(color: themeColors["Text"])),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPage(themeColors: themeColors)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutPage()));
                 },
               ),
               const SizedBox(height: 45),

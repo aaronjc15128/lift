@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../themeColors.dart';
 import '../background.dart';
 
 class GetProPage extends StatelessWidget {
-  final Map themeColors;
-  const GetProPage({Key? key, required this.themeColors}) : super(key: key);
+  const GetProPage({super.key});
 
   @override
   Widget build(BuildContext context){
@@ -116,7 +116,7 @@ class GetProPage extends StatelessWidget {
                         children: [
                           Text("Yearly", textAlign: TextAlign.left, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: themeColors["Text"])),
                           const SizedBox(height: 3),
-                          Text("= £2.41/mo !", textAlign: TextAlign.left, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
+                          Text("= £2.42/mo !", textAlign: TextAlign.left, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
                         ],
                       ),
                       Text("£28.99", textAlign: TextAlign.right, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w400, color: themeColors["Text"])),
