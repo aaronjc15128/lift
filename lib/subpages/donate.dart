@@ -74,6 +74,7 @@ class DonatePage extends StatelessWidget {
                 margin: const EdgeInsets.fromLTRB(95, 0, 95, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    elevation: 0,
                     textStyle: const TextStyle(fontSize: 16),
                     backgroundColor: Colors.transparent,
                   ),
