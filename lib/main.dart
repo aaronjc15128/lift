@@ -42,8 +42,6 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  
-
   List appbarTexts = ["History", "Split", "Workouts", "Exercises", "Stats"];
   String appbarText = "Workouts";
   int navbarIndex = 2;
