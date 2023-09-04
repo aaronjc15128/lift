@@ -77,10 +77,10 @@ class GetProPage extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    children: <Widget>[
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           Text("Monthly", textAlign: TextAlign.left, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: themeColors["Text"])),
                           const SizedBox(height: 3),
                           Text("Standard!", textAlign: TextAlign.left, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
@@ -110,10 +110,10 @@ class GetProPage extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    children: <Widget>[
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           Text("Yearly", textAlign: TextAlign.left, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: themeColors["Text"])),
                           const SizedBox(height: 3),
                           Text("= £2.42/mo !", textAlign: TextAlign.left, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),
@@ -143,10 +143,10 @@ class GetProPage extends StatelessWidget {
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
+                    children: <Widget>[
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           Text("Lifetime", textAlign: TextAlign.left, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600, color: themeColors["Text"])),
                           const SizedBox(height: 3),
                           Text("Best Value!", textAlign: TextAlign.left, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300, color: themeColors["Text"])),

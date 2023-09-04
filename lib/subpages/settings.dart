@@ -36,7 +36,13 @@ class SettingsPage extends StatelessWidget {
             
             children: <Widget>[
               const SizedBox(height: 80),
-              Text("SETTINGS Coming Soon...", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"]))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: <Widget>[
+                  Text("Weight Unit", textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"])),
+                ],
+              )
             ],
           ),
         ),

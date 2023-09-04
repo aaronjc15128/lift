@@ -85,7 +85,7 @@ class DonatePage extends StatelessWidget {
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [themeColors["Secondary"], themeColors["Accent"]],
+                        colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
                         begin: Alignment.bottomLeft,
                         end: Alignment.topRight,
                       ),
@@ -93,7 +93,7 @@ class DonatePage extends StatelessWidget {
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: <Widget>[
                         Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
                         const SizedBox(width: 8),
                         Text("Donate Link", style: TextStyle(color: themeColors["Text"])),

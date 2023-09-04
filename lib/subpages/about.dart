@@ -96,14 +96,13 @@ class AboutPage extends StatelessWidget {
                   Text("App:", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <IconButton>[
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
                         tooltip: "Google Play Store",
                         icon: Icon(Icons.store_mall_directory_rounded,
                         color: themeColors["Text"])
                       ),
-        
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
                         tooltip: "Apple App Store",
@@ -121,21 +120,19 @@ class AboutPage extends StatelessWidget {
                   Text("Socials:", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <IconButton>[
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));},
                         tooltip: "Email",
                         icon: Icon(Icons.email_outlined,
                         color: themeColors["Text"])
                       ),
-        
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://github.com/aaronjc15128/lift"));},
                         tooltip: "GitHub",
                         icon: Icon(Icons.code_rounded,
                         color: themeColors["Text"])
                       ),
-        
                       IconButton(
                         onPressed: (){Clipboard.setData(const ClipboardData(text: "https://www.flutter.dev"));}, 
                         tooltip: "Donate", 
