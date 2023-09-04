@@ -63,7 +63,10 @@ class GetProPage extends StatelessWidget {
                 onPressed: () {
                   
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  backgroundColor: Colors.transparent
+                ),
                 child: Container(height: 100,
                   margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                   padding: const EdgeInsets.all(6),
@@ -93,7 +96,10 @@ class GetProPage extends StatelessWidget {
                 onPressed: () {
                   
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  backgroundColor: Colors.transparent
+                ),
                 child: Container(height: 100,
                   margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                   padding: const EdgeInsets.all(6),
@@ -123,7 +129,10 @@ class GetProPage extends StatelessWidget {
                 onPressed: () {
                   
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  backgroundColor: Colors.transparent
+                ),
                 child: Container(height: 100,
                   margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
                   padding: const EdgeInsets.all(6),
