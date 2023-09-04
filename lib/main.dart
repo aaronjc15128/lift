@@ -190,7 +190,7 @@ class _AppState extends State<App> {
                     label: "Split",
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.monitor_weight_rounded),
+                    icon: Icon(Icons.bolt_rounded),
                     label: "Workouts",
                   ),
                   BottomNavigationBarItem(
