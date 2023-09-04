@@ -53,8 +53,6 @@ class _AppState extends State<App> {
     });
   }
 
-
-
   List<Widget> pages() => <Widget>[
     HistoryPage(themeColors: themeColors),
     SplitPage(themeColors: themeColors),
@@ -62,7 +60,6 @@ class _AppState extends State<App> {
     ExercisesPage(themeColors: themeColors),
     StatsPage(themeColors: themeColors),
   ];
-
 
 
   @override
