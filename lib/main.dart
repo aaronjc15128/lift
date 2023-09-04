@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'themeColors.dart';
+import 'theme_colors.dart';
 import 'background.dart';
 
 import 'mainpages/history.dart';

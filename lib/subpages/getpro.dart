@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../themeColors.dart';
+import '../theme_colors.dart';
 import '../background.dart';
 
 class GetProPage extends StatelessWidget {
