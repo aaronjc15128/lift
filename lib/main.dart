@@ -92,7 +92,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Workout App",
+      title: "Lift",
       theme: ThemeData(fontFamily: "Inter"),
 
       home: Scaffold(
