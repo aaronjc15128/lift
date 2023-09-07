@@ -1,6 +1,6 @@
 import os
 
-exercises = []
+output = ""
 count = 1
 
 t = {
@@ -55,9 +55,23 @@ while True:
     ty = t[ty].strip().title()
     mu = m[mu].strip().title()
 
-    exercises.append({"name": na, "type":ty, "muscle": mu})
+    output += "{"  + "\n"
+    output += f"  'name':'{na}'," + "\n"
+    output += f"  'type':'{ty}'," + "\n"
+    output += f"  'muscle':'{mu}'," + "\n"
+    output += "" + "\n"
+    output += "  'prev_sets':[]," + "\n"
+    output += "  'prev_warmup':[]," + "\n"
+    output += "  'prev_drops':[]," + "\n"
+    output += "" + "\n"
+    output += "  'total_reps':0," + "\n"
+    output += "  'total_volume':0," + "\n"
+    output += "" + "\n"
+    output += "  'max_weight':0," + "\n"
+    output += "  'max_onerepmax':0," + "\n"
+    output += "}," + "\n"
 
     count += 1
 
 os.system("clear")
-print(exercises)    
+print(output)
