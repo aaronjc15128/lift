@@ -16,12 +16,12 @@ class _ExercisesPageState extends State<ExercisesPage> {
   List<Widget> exerciseWidgets = <Widget>[];
 
   Map typeToIcon = {
-    "Barbell"    : Icon(Icons.circle, color: themeColors["Text"]),
-    "Bodyweight" : Icon(Icons.circle, color: themeColors["Text"]),
-    "Cable"      : Icon(Icons.circle, color: themeColors["Text"]),
-    "Dumbbell"   : Icon(Icons.circle, color: themeColors["Text"]),
-    "Machine"    : Icon(Icons.circle, color: themeColors["Text"]),
-    "Misc"       : Icon(Icons.circle, color: themeColors["Text"]),
+    "Barbell"    : Icon(Icons.do_not_disturb_rounded, color: themeColors["Icon"]),
+    "Bodyweight" : Icon(Icons.do_not_disturb_rounded, color: themeColors["Icon"]),
+    "Cable"      : Icon(Icons.cable_rounded, color: themeColors["Icon"]),
+    "Dumbbell"   : Icon(Icons.do_not_disturb_rounded, color: themeColors["Icon"]),
+    "Machine"    : Icon(Icons.settings_rounded, color: themeColors["Icon"]),
+    "Misc"       : Icon(Icons.question_mark_rounded, color: themeColors["Icon"]),
   };
 
   @override
@@ -52,8 +52,6 @@ class _ExercisesPageState extends State<ExercisesPage> {
       height: double.infinity,
       child: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: exerciseWidgets,
         ),
       ),

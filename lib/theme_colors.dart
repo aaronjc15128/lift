@@ -8,4 +8,5 @@ Map themeColors = {
   "Accent"      : const Color(0xFFF64B79),
   
   "Box"         : const Color(0x33555555),
+  "Icon"        : const Color(0x25FFFFFF),
 };
