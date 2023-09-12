@@ -15,6 +15,7 @@ import 'subpages/donate.dart';
 import 'subpages/settings.dart';
 import 'subpages/about.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -81,7 +82,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Lift",
-      theme: ThemeData(fontFamily: "Inter"),
+      theme: ThemeData(fontFamily: "Inter", colorScheme: ColorScheme.fromSwatch().copyWith(secondary: themeColors["Accent"])),
 
       home: Scaffold(
         extendBodyBehindAppBar: true,

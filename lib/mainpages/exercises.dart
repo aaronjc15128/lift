@@ -28,7 +28,6 @@ class _ExercisesPageState extends State<ExercisesPage> {
   void initState() {
     super.initState();
 
-    setState(() {exerciseWidgets.add(const SizedBox(height: 120));});
     for (var i = 0; i < exerciseList.length; i++) {
       setState(() {
         Map exercise = exerciseList[i];
@@ -43,18 +42,72 @@ class _ExercisesPageState extends State<ExercisesPage> {
         exerciseWidgets.add(const SizedBox(height: 10));
       });
     }
-    setState(() {exerciseWidgets.add(const SizedBox(height: 50));});
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: double.infinity,
-      child: SingleChildScrollView(
-        child: Column(
-          children: exerciseWidgets,
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 830,
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                children: exerciseWidgets,
+              ),
+            ),
+          ),
         ),
-      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                textStyle: const TextStyle(fontSize: 16),
+                backgroundColor: Colors.transparent,
+              ),
+              onPressed: () {
+                
+              },
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                textStyle: const TextStyle(fontSize: 16),
+                backgroundColor: Colors.transparent,
+              ),
+              onPressed: () {
+                
+              },
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.topRight,
+                  ),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
+              ),
+            ),
+          ]
+        )
+      ],
     );
   }
 }
@@ -77,7 +130,7 @@ class Exercise extends StatelessWidget {
             backgroundColor: Colors.transparent,
           ),
           child: Container(
-            height: 55,
+            height: 52,
             padding: const EdgeInsets.all(6),
             alignment: Alignment.center,
             decoration: BoxDecoration(color: themeColors["Box"], borderRadius: const BorderRadius.all(Radius.circular(15))),
@@ -91,7 +144,7 @@ class Exercise extends StatelessWidget {
                   child: Text(name, style: TextStyle(color: themeColors["Text"])),
                 ),
                 SizedBox(
-                  width: 50, 
+                  width: 50,
                   child: tailIcon
                 ),
               ],
