@@ -48,7 +48,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 830,
+        SizedBox(height: 850,
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(
@@ -80,7 +80,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
                   ),
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
+                child: Icon(Icons.filter_list_rounded, color: themeColors["Text"]),
               ),
             ),
             ElevatedButton(
@@ -102,11 +102,11 @@ class _ExercisesPageState extends State<ExercisesPage> {
                   ),
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: Icon(Icons.attach_money_rounded, color: themeColors["Text"]),
+                child: Icon(Icons.add_rounded, color: themeColors["Text"]),
               ),
             ),
           ]
-        )
+        ),
       ],
     );
   }
