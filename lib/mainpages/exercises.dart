@@ -48,7 +48,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 850,
+        SizedBox(height: 880,
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(
@@ -56,56 +56,6 @@ class _ExercisesPageState extends State<ExercisesPage> {
               ),
             ),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                textStyle: const TextStyle(fontSize: 16),
-                backgroundColor: Colors.transparent,
-              ),
-              onPressed: () {
-                
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.topRight,
-                  ),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Icon(Icons.filter_list_rounded, color: themeColors["Text"]),
-              ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                textStyle: const TextStyle(fontSize: 16),
-                backgroundColor: Colors.transparent,
-              ),
-              onPressed: () {
-                
-              },
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.topRight,
-                  ),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Icon(Icons.add_rounded, color: themeColors["Text"]),
-              ),
-            ),
-          ]
         ),
       ],
     );
@@ -130,7 +80,7 @@ class Exercise extends StatelessWidget {
             backgroundColor: Colors.transparent,
           ),
           child: Container(
-            height: 52,
+            height: 50,
             padding: const EdgeInsets.all(6),
             alignment: Alignment.center,
             decoration: BoxDecoration(color: themeColors["Box"], borderRadius: const BorderRadius.all(Radius.circular(15))),

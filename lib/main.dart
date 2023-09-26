@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'theme_colors.dart';
 import 'background.dart';
+import 'appbar_actions.dart';
 
 import 'mainpages/history.dart';
 import 'mainpages/split.dart';
@@ -43,14 +44,16 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List appbarTexts = ["History", "Split", "Workouts", "Exercises", "Stats"];
+  List<String> appbarTexts = ["History", "Split", "Workouts", "Exercises", "Stats"];
   String appbarText = "Workouts";
+  List<Widget> appbarAction = appbarActions["Workouts"];
   int navbarIndex = 2;
 
   void navbarTap(int index) {
     setState(() {
       navbarIndex = index;
       appbarText = appbarTexts[index];
+      appbarAction = appbarActions[appbarText];
     });
   }
 
@@ -96,6 +99,7 @@ class _AppState extends State<App> {
             iconTheme: IconThemeData(color: themeColors["Text"]),
             title: Text(appbarText, style: TextStyle(fontSize: 22, color: themeColors["Text"])),
             centerTitle: true,
+            actions: appbarAction,
           )
         ),
 
