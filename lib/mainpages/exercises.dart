@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../background.dart';
 import '../theme_colors.dart';
 import '../storage/exercise_list.dart';
 
@@ -36,7 +37,15 @@ class _ExercisesPageState extends State<ExercisesPage> {
           Exercise(
             /*leadIcon: leadIcon,*/
             name: exercise["name"],
-            tailIcon: typeToIcon[exercise["type"]]
+            tailIcon: typeToIcon[exercise["type"]],
+
+            type: exercise["type"],
+            stats: <String, int>{
+              "totalReps": exercise["total_reps"],
+              "totalVolume": exercise["total_volume"],
+              "maxWeight": exercise["max_weight"],
+              "maxOneRepMax": exercise["max_onerepmax"],
+            },
           ),
         );
         exerciseWidgets.add(const SizedBox(height: 10));
@@ -48,7 +57,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 880,
+        SizedBox(height: 888,
           child: SafeArea(
             child: SingleChildScrollView(
               child: Column(
@@ -66,7 +75,9 @@ class Exercise extends StatelessWidget {
   //final Icon leadIcon;
   final String name;
   final Icon tailIcon;
-  const Exercise({Key? key, /*required this.leadIcon,*/ required this.name, required this.tailIcon}) : super(key: key);
+  final String type;
+  final Map<String, int> stats;
+  const Exercise({Key? key, /*required this.leadIcon,*/ required this.name, required this.tailIcon, required this.type, required this.stats}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +85,7 @@ class Exercise extends StatelessWidget {
       children: [
         const SizedBox(width: 15),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseView(name: name, type: type, stats: stats)));},
           style: ElevatedButton.styleFrom(
             elevation: 0,
             backgroundColor: Colors.transparent,
@@ -103,6 +114,81 @@ class Exercise extends StatelessWidget {
         ),
         const SizedBox(width: 15),
       ],
+    );
+  }
+}
+
+class ExerciseView extends StatelessWidget {
+  final String name;
+  final String type;
+  final Map<String, int> stats;
+  const ExerciseView({Key? key, required this.name, required this.type, required this.stats}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Lift",
+      theme: ThemeData(fontFamily: "Inter"),
+      
+      home: Scaffold(
+        extendBodyBehindAppBar: true,
+
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          iconTheme: IconThemeData(color: themeColors["Text"]),
+          title: Text(name, style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_rounded)
+          ),
+        ),
+
+        body: Background(
+          page: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Text("Type: ", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 10),
+
+                      Text("Max Weight: ", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text("Max 1RM:", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text("Total Reps: ", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text("Total Volume:", style: TextStyle(color: themeColors["Text"])),
+                    ],
+                  ),
+                  const SizedBox(width: 15),
+                  Column(
+                    children: [
+                      Text(type, style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 10),
+
+                      Text("${stats["maxWeight"]} kg", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text("${stats["maxOneRepMax"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text(stats["totalReps"].toString(), style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text("${stats["totalVolume"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
