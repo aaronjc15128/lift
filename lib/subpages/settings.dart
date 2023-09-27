@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../theme_colors.dart';
 import '../background.dart';
@@ -10,10 +9,6 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
     return MaterialApp(
       title: "Lift",
       theme: ThemeData(fontFamily: "Inter"),
@@ -66,7 +61,7 @@ class _AppState extends State<App> {
           icon: const Icon(Icons.arrow_back_rounded)
         ),
       ),
-      
+
       body: Background(
         page: Column(
           mainAxisAlignment: MainAxisAlignment.center,

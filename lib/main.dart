@@ -152,7 +152,7 @@ class _AppState extends State<App> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.settings_rounded, color: themeColors["Text"],),
+                leading: Icon(Icons.settings_outlined, color: themeColors["Text"],),
                 title: Text("Settings", style: TextStyle(color: themeColors["Text"])),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
