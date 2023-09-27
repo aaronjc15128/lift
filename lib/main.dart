@@ -13,6 +13,7 @@ import 'mainpages/stats.dart';
 
 import 'subpages/getpro.dart';
 import 'subpages/donate.dart';
+import 'subpages/comingsoon.dart';
 import 'subpages/settings.dart';
 import 'subpages/about.dart';
 
@@ -143,6 +144,13 @@ class _AppState extends State<App> {
                 },
               ),
               const Spacer(),
+              ListTile(
+                leading: Icon(Icons.access_time_rounded, color: themeColors["Text"],),
+                title: Text("Coming Soon", style: TextStyle(color: themeColors["Text"])),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ComingSoonPage()));
+                },
+              ),
               ListTile(
                 leading: Icon(Icons.settings_rounded, color: themeColors["Text"],),
                 title: Text("Settings", style: TextStyle(color: themeColors["Text"])),
