@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../background.dart';
 import '../theme_colors.dart';
 import '../storage/exercise_list.dart';
+import '../storage/preferences.dart';
 
 class ExercisesPage extends StatefulWidget {
   final Map themeColors;
@@ -186,13 +187,13 @@ class ExerciseView extends StatelessWidget {
                       
                       const SizedBox(height: 20),
 
-                      Text("${info["maxWeight"]} kg", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["maxWeight"]} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text("${info["maxOneRepMax"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["maxOneRepMax"].toString()} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
                       Text(info["totalReps"].toString(), style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text("${info["totalVolume"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["totalVolume"].toString()} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
                     ],
                   ),
                 ],

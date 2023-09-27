@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../theme_colors.dart';
 import '../background.dart';
+import '../storage/preferences.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -27,9 +28,20 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  String selectedUnit = "kg";
-  Color kgColor = themeColors["Box"];
-  Color lbsColor = Colors.transparent;
+  late Color kgColor;
+  late Color lbsColor;
+
+  @override
+  void initState() {
+    if (preferences["weight_unit"] == "kg") {
+      kgColor = themeColors["Box"];
+      lbsColor = Colors.transparent;
+    }
+    else if (preferences["weight_unit"] == "lbs") {
+      kgColor = Colors.transparent;
+      lbsColor = themeColors["Box"];
+    }
+  }
 
   
   @override
@@ -71,7 +83,7 @@ class _AppState extends State<App> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        selectedUnit = "kg";
+                        preferences["weight_unit"] = "kg";
                         kgColor = themeColors["Box"];
                         lbsColor = Colors.transparent;
                       });
@@ -88,7 +100,7 @@ class _AppState extends State<App> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        selectedUnit = "lbs";
+                        preferences["weight_unit"] = "lbs";
                         kgColor = Colors.transparent;
                         lbsColor = themeColors["Box"];
                       });
