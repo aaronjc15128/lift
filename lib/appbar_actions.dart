@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'theme_colors.dart';
 
 Map appbarActions = <String, List<Widget>>{
-  "History" : [
+  "History" : <IconButton>[
 
   ],
 
-  "Split" : [
+  "Split" : <IconButton>[
 
   ],
 
-  "Workouts" : [
+  "Workouts" : <IconButton>[
 
   ],
   
-  "Exercises" : [
+  "Exercises" : <IconButton>[
     IconButton(
       onPressed: (){},
       tooltip: "Search",
@@ -33,7 +33,7 @@ Map appbarActions = <String, List<Widget>>{
     ),
   ],
 
-  "Stats" : [
+  "Stats" : <IconButton>[
 
   ],
   

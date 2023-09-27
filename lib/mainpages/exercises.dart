@@ -82,7 +82,7 @@ class Exercise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         const SizedBox(width: 15),
         ElevatedButton(
           onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseView(name: name, info: info)));},
@@ -152,9 +152,9 @@ class ExerciseView extends StatelessWidget {
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   Column(
-                    children: [
+                    children: <Widget>[
                       Text("Name: ", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
                       Text("Type: ", style: TextStyle(color: themeColors["Text"])),
@@ -174,7 +174,7 @@ class ExerciseView extends StatelessWidget {
                   ),
                   const SizedBox(width: 15),
                   Column(
-                    children: [
+                    children: <Widget>[
                       Text(name, style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
                       Text(info["type"], style: TextStyle(color: themeColors["Text"])),
