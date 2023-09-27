@@ -30,6 +30,8 @@ class _ExercisesPageState extends State<ExercisesPage> {
   void initState() {
     super.initState();
 
+    exerciseList.sort((a, b) => a['name']!.compareTo(b['name']!));
+
     for (var i = 0; i < exerciseList.length; i++) {
       setState(() {
         Map exercise = exerciseList[i];
