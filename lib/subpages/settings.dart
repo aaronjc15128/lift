@@ -33,6 +33,8 @@ class _AppState extends State<App> {
 
   @override
   void initState() {
+    super.initState();
+    
     if (preferences["weight_unit"] == "kg") {
       kgColor = themeColors["Box"];
       lbsColor = Colors.transparent;

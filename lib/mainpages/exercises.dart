@@ -97,7 +97,7 @@ class Exercise extends StatelessWidget {
             height: 50,
             padding: const EdgeInsets.all(6),
             alignment: Alignment.center,
-            decoration: BoxDecoration(color: themeColors["Box"], borderRadius: const BorderRadius.all(Radius.circular(15))),
+            decoration: BoxDecoration(color: themeColors["DarkBox"], borderRadius: const BorderRadius.all(Radius.circular(15))),
             child: Row(
               children: <Widget>[
                 const SizedBox(
