@@ -18,6 +18,11 @@ Map appbarActions = <String, List<Widget>>{
   "Exercises" : [
     IconButton(
       onPressed: (){},
+      tooltip: "Search",
+      icon: Icon(Icons.search_rounded, color: themeColors["Text"])
+    ),
+    IconButton(
+      onPressed: (){},
       tooltip: "Filter",
       icon: Icon(Icons.filter_list_rounded, color: themeColors["Text"])
     ),

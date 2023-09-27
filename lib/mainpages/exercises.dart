@@ -39,8 +39,9 @@ class _ExercisesPageState extends State<ExercisesPage> {
             name: exercise["name"],
             tailIcon: typeToIcon[exercise["type"]],
 
-            type: exercise["type"],
-            stats: <String, int>{
+            info: {
+              "type": exercise["type"],
+              "muscle": exercise["muscle"],
               "totalReps": exercise["total_reps"],
               "totalVolume": exercise["total_volume"],
               "maxWeight": exercise["max_weight"],
@@ -75,9 +76,8 @@ class Exercise extends StatelessWidget {
   //final Icon leadIcon;
   final String name;
   final Icon tailIcon;
-  final String type;
-  final Map<String, int> stats;
-  const Exercise({Key? key, /*required this.leadIcon,*/ required this.name, required this.tailIcon, required this.type, required this.stats}) : super(key: key);
+  final Map info;
+  const Exercise({Key? key, /*required this.leadIcon,*/ required this.name, required this.tailIcon, required this.info}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class Exercise extends StatelessWidget {
       children: [
         const SizedBox(width: 15),
         ElevatedButton(
-          onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseView(name: name, type: type, stats: stats)));},
+          onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ExerciseView(name: name, info: info)));},
           style: ElevatedButton.styleFrom(
             elevation: 0,
             backgroundColor: Colors.transparent,
@@ -120,9 +120,8 @@ class Exercise extends StatelessWidget {
 
 class ExerciseView extends StatelessWidget {
   final String name;
-  final String type;
-  final Map<String, int> stats;
-  const ExerciseView({Key? key, required this.name, required this.type, required this.stats}) : super(key: key);
+  final Map info;
+  const ExerciseView({Key? key, required this.name, required this.info}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -156,8 +155,13 @@ class ExerciseView extends StatelessWidget {
                 children: [
                   Column(
                     children: [
+                      Text("Name: ", style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
                       Text("Type: ", style: TextStyle(color: themeColors["Text"])),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
+                      Text("Muscle Group: ", style: TextStyle(color: themeColors["Text"])),
+                      
+                      const SizedBox(height: 20),
 
                       Text("Max Weight: ", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
@@ -171,16 +175,24 @@ class ExerciseView extends StatelessWidget {
                   const SizedBox(width: 15),
                   Column(
                     children: [
-                      Text(type, style: TextStyle(color: themeColors["Text"])),
-                      const SizedBox(height: 10),
+                      Text(name, style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text(info["type"], style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      Text(info["muscle"], style: TextStyle(color: themeColors["Text"])),
+                      const SizedBox(height: 5),
+                      
+                      
+                      
+                      const SizedBox(height: 20),
 
-                      Text("${stats["maxWeight"]} kg", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["maxWeight"]} kg", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text("${stats["maxOneRepMax"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["maxOneRepMax"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text(stats["totalReps"].toString(), style: TextStyle(color: themeColors["Text"])),
+                      Text(info["totalReps"].toString(), style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text("${stats["totalVolume"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["totalVolume"].toString()} kg", style: TextStyle(color: themeColors["Text"])),
                     ],
                   ),
                 ],
