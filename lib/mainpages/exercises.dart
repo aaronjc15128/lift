@@ -175,7 +175,7 @@ class ExerciseView extends StatelessWidget {
                       Text("Total Volume:", style: TextStyle(color: themeColors["Text"])),
                     ],
                   ),
-                  const SizedBox(width: 15),
+                  const SizedBox(width: 30),
                   Column(
                     children: <Widget>[
                       Text(name, style: TextStyle(color: themeColors["Text"])),
