@@ -49,6 +49,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
               "totalVolume": exercise["total_volume"],
               "maxWeight": exercise["max_weight"],
               "maxOneRepMax": exercise["max_onerepmax"],
+              "description": exercise["description"],
             },
           ),
         );
@@ -153,6 +154,10 @@ class ExerciseView extends StatelessWidget {
           page: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 60),
+                child: Text(info["description"].toString(), textAlign: TextAlign.center, style: TextStyle(color: themeColors["Text"])),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

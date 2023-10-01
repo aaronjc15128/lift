@@ -13,6 +13,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Crunch',
@@ -28,6 +30,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Bent Over Row',
@@ -43,6 +47,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Shrug',
@@ -58,6 +64,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Lat Pulldown',
@@ -73,6 +81,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Bicep Curl',
@@ -88,6 +98,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Hammer Curl',
@@ -103,6 +115,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Bench Press',
@@ -118,6 +132,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Smith Bench Press',
@@ -133,6 +149,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Iso-Lateral Chest Press',
@@ -148,6 +166,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Standing Reverse Wrist Curl',
@@ -163,6 +183,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Bulgarian Split Squat',
@@ -178,6 +200,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Neck Extension',
@@ -193,6 +217,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Lateral Raise',
@@ -208,6 +234,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Lateral Raise',
@@ -223,6 +251,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Tricep Extension',
@@ -238,6 +268,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Diamond Push Up',
@@ -253,6 +285,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Tricep Extension',
@@ -268,6 +302,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Skullcrusher',
@@ -283,6 +319,8 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
   {
     'name':'Skullcrusher',
@@ -298,5 +336,7 @@ List exerciseList = [
 
     'max_weight':0,
     'max_onerepmax':0,
+
+    'description':'No description yet...',
   },
 ];

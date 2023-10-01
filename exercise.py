@@ -69,6 +69,8 @@ while True:
     output += "" + "\n"
     output += "  'max_weight':0," + "\n"
     output += "  'max_onerepmax':0," + "\n"
+    output += "" + "\n"
+    output += "  'description':''," + "\n"
     output += "}," + "\n"
 
     count += 1
