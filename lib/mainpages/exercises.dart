@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../background.dart';
 import '../theme_colors.dart';
+import '../functions.dart';
 import '../storage/exercise_list.dart';
 import '../storage/preferences.dart';
 
@@ -45,15 +46,27 @@ class _ExercisesPageState extends State<ExercisesPage> {
             info: {
               "type": exercise["type"],
               "muscle": exercise["muscle"],
-              "totalReps": exercise["total_reps"],
-              "totalVolume": exercise["total_volume"],
-              "maxWeight": exercise["max_weight"],
-              "maxOneRepMax": exercise["max_onerepmax"],
+              "totalReps": exercise["total_reps"].toString(),
+              "totalVolume": convertUnit(exercise["total_volume"]).toString(),
+              "maxWeight": convertUnit(exercise["max_weight"]).toString(),
+              "maxOneRepMax": convertUnit(exercise["max_onerepmax"]).toString(),
               "description": exercise["description"],
             },
           ),
         );
         exerciseWidgets.add(const SizedBox(height: 10));
+
+        print(
+          {
+            "type": exercise["type"],
+            "muscle": exercise["muscle"],
+            "totalReps": exercise["total_reps"].toString(),
+            "totalVolume": convertUnit(exercise["total_volume"]).toString(),
+            "maxWeight": convertUnit(exercise["max_weight"]).toString(),
+            "maxOneRepMax": convertUnit(exercise["max_onerepmax"]).toString(),
+            "description": exercise["description"],
+          }
+        );
       });
     }
   }
@@ -190,17 +203,15 @@ class ExerciseView extends StatelessWidget {
                       Text(info["muscle"], style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
                       
-                      
-                      
                       const SizedBox(height: 20),
 
                       Text("${info["maxWeight"]} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text("${info["maxOneRepMax"].toString()} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["maxOneRepMax"]} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text(info["totalReps"].toString(), style: TextStyle(color: themeColors["Text"])),
+                      Text(info["totalReps"], style: TextStyle(color: themeColors["Text"])),
                       const SizedBox(height: 5),
-                      Text("${info["totalVolume"].toString()} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
+                      Text("${info["totalVolume"]} ${preferences["weight_unit"]}", style: TextStyle(color: themeColors["Text"])),
                     ],
                   ),
                 ],
