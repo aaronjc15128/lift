@@ -33,12 +33,12 @@ class _AppState extends State<App> {
     super.initState();
 
     if (preferences["weight_unit"] == "kg") {
-      kgColor = themeColors["Box"];
+      kgColor = themeColors["LightBox"];
       lbsColor = Colors.transparent;
     }
     else if (preferences["weight_unit"] == "lbs") {
       kgColor = Colors.transparent;
-      lbsColor = themeColors["Box"];
+      lbsColor = themeColors["LightBox"];
     }
   }
 
@@ -78,7 +78,7 @@ class _AppState extends State<App> {
                   onPressed: () {
                     setState(() {
                       preferences["weight_unit"] = "kg";
-                      kgColor = themeColors["Box"];
+                      kgColor = themeColors["LightBox"];
                       lbsColor = Colors.transparent;
                     });
                   },
@@ -96,7 +96,7 @@ class _AppState extends State<App> {
                     setState(() {
                       preferences["weight_unit"] = "lbs";
                       kgColor = Colors.transparent;
-                      lbsColor = themeColors["Box"];
+                      lbsColor = themeColors["LightBox"];
                     });
                   },
                   style: ElevatedButton.styleFrom(
