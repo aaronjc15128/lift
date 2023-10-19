@@ -27,12 +27,8 @@ class _ExercisesPageState extends State<ExercisesPage> {
     "Misc"       : Icon(Icons.question_mark_rounded, color: themeColors["Icon"]),
   };
 
-  @override
-  void initState() {
-    super.initState();
-
+  void startupExercises() {
     exerciseList.sort((a, b) => a['name']!.compareTo(b['name']!));
-
     for (var i = 0; i < exerciseList.length; i++) {
       setState(() {
         Map exercise = exerciseList[i];
@@ -55,20 +51,15 @@ class _ExercisesPageState extends State<ExercisesPage> {
           ),
         );
         exerciseWidgets.add(const SizedBox(height: 10));
-
-        print(
-          {
-            "type": exercise["type"],
-            "muscle": exercise["muscle"],
-            "totalReps": exercise["total_reps"].toString(),
-            "totalVolume": convertUnit(exercise["total_volume"]).toString(),
-            "maxWeight": convertUnit(exercise["max_weight"]).toString(),
-            "maxOneRepMax": convertUnit(exercise["max_onerepmax"]).toString(),
-            "description": exercise["description"],
-          }
-        );
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    startupExercises();
   }
 
   @override

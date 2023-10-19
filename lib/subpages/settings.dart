@@ -77,7 +77,7 @@ class _AppState extends State<App> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      preferences["weight_unit"] = "kg";
+                      preferences.update("weight_unit", (value) => "kg");
                       kgColor = themeColors["LightBox"];
                       lbsColor = Colors.transparent;
                     });
@@ -94,7 +94,7 @@ class _AppState extends State<App> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      preferences["weight_unit"] = "lbs";
+                      preferences.update("weight_unit", (value) => "lbs");
                       kgColor = Colors.transparent;
                       lbsColor = themeColors["LightBox"];
                     });
