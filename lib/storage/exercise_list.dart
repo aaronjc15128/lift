@@ -96,7 +96,7 @@ List exerciseList = [
     'total_reps':0,
     'total_volume':0,
 
-    'max_weight':20,
+    'max_weight':0,
     'max_onerepmax':0,
 
     'description':'No description yet...',
