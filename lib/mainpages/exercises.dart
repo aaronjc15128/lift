@@ -27,7 +27,10 @@ class _ExercisesPageState extends State<ExercisesPage> {
     "Misc"       : Icon(Icons.question_mark_rounded, color: themeColors["Icon"]),
   };
 
-  void startupExercises() {
+  @override
+  void initState() {
+    super.initState();
+
     exerciseList.sort((a, b) => a['name']!.compareTo(b['name']!));
     for (var i = 0; i < exerciseList.length; i++) {
       setState(() {
@@ -53,13 +56,6 @@ class _ExercisesPageState extends State<ExercisesPage> {
         exerciseWidgets.add(const SizedBox(height: 10));
       });
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    startupExercises();
   }
 
   @override
