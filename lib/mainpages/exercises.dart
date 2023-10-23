@@ -19,10 +19,10 @@ class _ExercisesPageState extends State<ExercisesPage> {
   List<Widget> exerciseWidgets = <Widget>[];
 
   Map typeToIcon = {
-    "Barbell"    : Icon(Icons.do_not_disturb_rounded, color: themeColors["Icon"]),
-    "Bodyweight" : Icon(Icons.do_not_disturb_rounded, color: themeColors["Icon"]),
+    "Barbell"    : Icon(Icons.bar_chart_rounded, color: themeColors["Icon"]),
+    "Bodyweight" : Icon(Icons.person_rounded, color: themeColors["Icon"]),
     "Cable"      : Icon(Icons.cable_rounded, color: themeColors["Icon"]),
-    "Dumbbell"   : Icon(Icons.do_not_disturb_rounded, color: themeColors["Icon"]),
+    "Dumbbell"   : Icon(Icons.monitor_weight_rounded, color: themeColors["Icon"]),
     "Machine"    : Icon(Icons.settings_rounded, color: themeColors["Icon"]),
     "Misc"       : Icon(Icons.question_mark_rounded, color: themeColors["Icon"]),
   };
