@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme_colors.dart';
+import '../background.dart';
 import '../storage/workout_list.dart';
 
 class WorkoutsPage extends StatefulWidget {
@@ -13,6 +14,32 @@ class WorkoutsPage extends StatefulWidget {
 
 class _WorkoutsPageState extends State<WorkoutsPage> {
 
+  Map codeToType = {
+    "Ba" : "Barbell",
+    "Bo" : "Bodyweight",
+    "Ca" : "Cable",
+    "Du" : "Dumbbell",
+    "Ma" : "Machine",
+    "Mi" : "Misc",
+  };
+  /*
+  Map codeToMuscle = {
+    "Ba" : "Barbell",
+    "Bo" : "Bodyweight",
+    "Ca" : "Cable",
+    "Du" : "Dumbbell",
+    "Ma" : "Machine",
+    "Mi" : "Misc",
+  };
+  */
+
+  Map<String, String> codeToTypeMuscle(String code) {
+    String type = codeToType[code.split("")[0] + code.split("")[1]];
+    //String muscle = codeToMuscle[code.split("")[2] + code.split("")[3]];
+
+    return {"type": type/*, "muscle": muscle*/};
+  }
+
   List<Widget> workoutButtonsWidgets = <Widget>[];
 
   @override
@@ -21,9 +48,10 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
     
     for (var i = 0; i < workoutList.length; i++) {
       setState(() {
-        // set workout & create content list
+        // set workout & create content/longcontent list
         Map workout = workoutList[i];
         List<Widget> content = <Widget>[];
+        List<Widget> longcontent = <Widget>[];
 
 
         // add titles to content
@@ -69,10 +97,34 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
         }
 
 
+        // add sets to longcontent
+        longcontent.add(const SizedBox(height: 130));
+        for (var i = 0; i < workout["content"].length; i++) {
+          longcontent.add(
+            Row(
+              children: <Widget>[
+                const SizedBox(width: 20),
+                SizedBox(
+                  width: 20,
+                  //? remove warm up sets
+                  child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                ),
+                const SizedBox(width: 20),
+                SizedBox(
+                  width: 350,
+                  child: Text("${workout["content"][i]["name"]} (${codeToTypeMuscle(workout["content"][i]["code"])["type"]})", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                ),
+              ],
+            ),
+          );
+          longcontent.add(const SizedBox(height: 20));
+        }
+
+
         // add full button to page
         workoutButtonsWidgets.add(
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => WorkoutPreview(name: workout["name"], longcontent: longcontent)));},
             style: ElevatedButton.styleFrom(
               elevation: 0,
               backgroundColor: Colors.transparent,
@@ -106,6 +158,45 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class WorkoutPreview extends StatelessWidget {
+  final String name;
+  final List<Widget> longcontent;
+  const WorkoutPreview({Key? key, required this.name, required this.longcontent}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Lift",
+      theme: ThemeData(fontFamily: "Inter"),
+      
+      home: Scaffold(
+        extendBodyBehindAppBar: true,
+
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          iconTheme: IconThemeData(color: themeColors["Text"]),
+          title: Text(name, style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_rounded)
+          ),
+        ),
+
+        body: Background(
+          page: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: longcontent,
+          ),
+        ),
+      ),
     );
   }
 }

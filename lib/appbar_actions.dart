@@ -12,7 +12,16 @@ Map appbarActions = <String, List<Widget>>{
   ],
 
   "Workouts" : <IconButton>[
-
+    IconButton(
+      onPressed: (){},
+      tooltip: "Add Template",
+      icon: Icon(Icons.post_add_rounded, color: themeColors["Text"])
+    ),
+    IconButton(
+      onPressed: (){},
+      tooltip: "Add Empty",
+      icon: Icon(Icons.add_rounded, color: themeColors["Text"])
+    ),
   ],
   
   "Exercises" : <IconButton>[
@@ -28,7 +37,7 @@ Map appbarActions = <String, List<Widget>>{
     ),
     IconButton(
       onPressed: (){},
-      tooltip: "Add Exercise",
+      tooltip: "Add",
       icon: Icon(Icons.add_rounded, color: themeColors["Text"])
     ),
   ],
