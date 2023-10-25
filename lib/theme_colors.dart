@@ -7,7 +7,7 @@ Map themeColors = {
   "Secondary"   : const Color(0xFF47346B),
   "Accent"      : const Color(0xFFF64B79),
   
-  "Box"         : const Color(0x33444444),
+  "Box"         : const Color(0x33333333),
   "DarkBox"     : const Color(0x33222222),
   "LightBox"    : const Color(0x33666666),
   "Icon"        : const Color(0x28FFFFFF),
