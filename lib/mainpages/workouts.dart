@@ -21,11 +21,57 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
     
     for (var i = 0; i < workoutList.length; i++) {
       setState(() {
-        Map exercise = workoutList[i];
+        // set workout & create content list
+        Map workout = workoutList[i];
+        List<Widget> content = <Widget>[];
 
+
+        // add titles to content
+        content.add(
+          Row(
+            children: <Widget>[
+              SizedBox(
+                width: 230,
+                child: Text(workout["name"], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Text"])),
+              ),
+              SizedBox(
+                width: 50,
+                child: Text("#${workout["split"][0]} #${workout["split"][1]}", textAlign: TextAlign.right, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Icon"])),
+              ),
+            ],
+          ),
+        );
+        content.add(const SizedBox(height: 10));
+
+
+        // add sets to content
+        for (var i = 0; i < workout["content"].length; i++) {
+          content.add(
+            Row(
+              children: <Widget>[
+                SizedBox(
+                  width: 20,
+                  child: Text("${workout["content"][i]["sets"].length}x", style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                ),
+                const SizedBox(width: 20),
+                SizedBox(
+                  width: 230,
+                  child: Text(workout["content"][i]["name"], style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                ),
+              ],
+            ),
+          );
+
+          if (i != workout["content"].length - 1) {
+            content.add(const SizedBox(height: 5));
+          }
+        }
+
+
+        // add full button to page
         workoutButtonsWidgets.add(
           WorkoutButton(
-            name: exercise["name"]
+            content: content,
           ),
         );
         workoutButtonsWidgets.add(const SizedBox(height: 10));
@@ -52,8 +98,8 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
 }
 
 class WorkoutButton extends StatelessWidget {
-  final String name;
-  const WorkoutButton({Key? key, required this.name}) : super(key: key);
+  final List<Widget> content;
+  const WorkoutButton({Key? key, required this.content}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,12 +114,16 @@ class WorkoutButton extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(30, 20, 20, 20),
         margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(
+          children: content,
+
+          /*
+          ? Manual Button
           children: [
             Row(
               children: <Widget>[
                 SizedBox(
                   width: 230,
-                  child: Text(name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Text"])),
+                  child: Text("Push Day", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Text"])),
                 ),
                 SizedBox(
                   width: 50,
@@ -166,6 +216,7 @@ class WorkoutButton extends StatelessWidget {
               ],
             ),
           ],
+          */
         ),
       ),
     );

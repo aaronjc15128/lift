@@ -1,8 +1,8 @@
 List workoutList = [
   {
     'name':'Push Day',
-    'split':0,
-    'workout':[
+    'split':[1, 5],
+    'content':[
       {'code':'DuCh', 'name':'Iso-Lateral Chest Press', 'sets':['w', 'n', 'f'],},
       {'code':'BaCh', 'name':'Bench Press', 'sets':['w', 'n', 'f'],},
       {'code':'MaCh', 'name':'Smith Bench Press', 'sets':['f'],},
