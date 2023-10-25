@@ -51,7 +51,8 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               children: <Widget>[
                 SizedBox(
                   width: 20,
-                  child: Text("${workout["content"][i]["sets"].length}x", style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                  //? remove warm up sets
+                  child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 14, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
