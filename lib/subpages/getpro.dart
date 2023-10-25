@@ -72,7 +72,7 @@ class GetProPage extends StatelessWidget {
                   padding: const EdgeInsets.all(6),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: themeColors["Box"],
+                    color: themeColors["LightBox"],
                     borderRadius: const BorderRadius.all(Radius.circular(25))
                   ),
                   child: Row(
@@ -105,7 +105,7 @@ class GetProPage extends StatelessWidget {
                   padding: const EdgeInsets.all(6),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: themeColors["Box"],
+                    color: themeColors["LightBox"],
                     borderRadius: const BorderRadius.all(Radius.circular(25))
                   ),
                   child: Row(
@@ -138,7 +138,7 @@ class GetProPage extends StatelessWidget {
                   padding: const EdgeInsets.all(6),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: themeColors["Box"],
+                    color: themeColors["LightBox"],
                     borderRadius: const BorderRadius.all(Radius.circular(25))
                   ),
                   child: Row(
