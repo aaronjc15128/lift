@@ -22,22 +22,28 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
     "Ma" : "Machine",
     "Mi" : "Misc",
   };
-  /*
+  
   Map codeToMuscle = {
-    "Ba" : "Barbell",
-    "Bo" : "Bodyweight",
-    "Ca" : "Cable",
-    "Du" : "Dumbbell",
-    "Ma" : "Machine",
-    "Mi" : "Misc",
+    "Ab" : "Abs",
+    "Ba" : "Back",
+    "Bi" : "Biceps",
+    "Ca" : "Calves",
+    "Ch" : "Chest",
+    "Fo" : "Forearms",
+    "Gl" : "Glutes",
+    "Ha" : "Hamstrings",
+    "Ne" : "Neck",
+    "Qu" : "Quadriceps",
+    "Sh" : "Shoulders",
+    "Tr" : "Triceps",
   };
-  */
+  
 
   Map<String, String> codeToTypeMuscle(String code) {
     String type = codeToType[code.split("")[0] + code.split("")[1]];
-    //String muscle = codeToMuscle[code.split("")[2] + code.split("")[3]];
+    String muscle = (codeToMuscle[code.split("")[2] + code.split("")[3]]).toString();
 
-    return {"type": type/*, "muscle": muscle*/};
+    return {"type": type, "muscle": muscle};
   }
 
   List<Widget> workoutButtonsWidgets = <Widget>[];
@@ -79,7 +85,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               children: <Widget>[
                 SizedBox(
                   width: 20,
-                  //? remove warm up sets
+                  //* remove warm up sets
                   child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 14, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
@@ -106,13 +112,19 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                 const SizedBox(width: 20),
                 SizedBox(
                   width: 20,
-                  //? remove warm up sets
+                  //* remove warm up sets
                   child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
                   width: 350,
-                  child: Text("${workout["content"][i]["name"]} (${codeToTypeMuscle(workout["content"][i]["code"])["type"]})", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("${workout["content"][i]["name"]} (${codeToTypeMuscle(workout["content"][i]["code"])["type"]})", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                      Text((codeToTypeMuscle(workout["content"][i]["code"])["muscle"]).toString(), style: TextStyle(fontSize: 16, color: themeColors["Icon"])),
+                    ],
+                  ),
                 ),
               ],
             ),
