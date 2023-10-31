@@ -5,6 +5,7 @@ import '../theme_colors.dart';
 import '../functions.dart';
 import '../storage/exercise_list.dart';
 import '../storage/preferences.dart';
+import '../conversions.dart';
 
 class ExercisesPage extends StatefulWidget {
   final Map themeColors;
@@ -17,15 +18,6 @@ class ExercisesPage extends StatefulWidget {
 class _ExercisesPageState extends State<ExercisesPage> {
   
   List<Widget> exerciseWidgets = <Widget>[];
-
-  Map typeToIcon = {
-    "Barbell"    : Icon(Icons.bar_chart_rounded, color: themeColors["Icon"]),
-    "Bodyweight" : Icon(Icons.person_rounded, color: themeColors["Icon"]),
-    "Cable"      : Icon(Icons.cable_rounded, color: themeColors["Icon"]),
-    "Dumbbell"   : Icon(Icons.monitor_weight_rounded, color: themeColors["Icon"]),
-    "Machine"    : Icon(Icons.settings_rounded, color: themeColors["Icon"]),
-    "Misc"       : Icon(Icons.question_mark_rounded, color: themeColors["Icon"]),
-  };
 
   @override
   void initState() {
@@ -40,7 +32,7 @@ class _ExercisesPageState extends State<ExercisesPage> {
           Exercise(
             /*leadIcon: leadIcon,*/
             name: exercise["name"],
-            tailIcon: typeToIcon[exercise["type"]],
+            tailIcon: Icon(typeToIcon[exercise["type"]], color: themeColors["Icon"]),
 
             info: {
               "type": exercise["type"],

@@ -10,5 +10,8 @@ Map themeColors = {
   "Box"         : const Color(0x33333333),
   "DarkBox"     : const Color(0x33202020),
   "LightBox"    : const Color(0x33666666),
+
   "Icon"        : const Color(0x28FFFFFF),
+  "DarkIcon"    : const Color(0x13FFFFFF),
+  "LightIcon"   : const Color(0x3BFFFFFF),
 };

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme_colors.dart';
 import '../background.dart';
 import '../storage/workout_list.dart';
+import '../conversions.dart';
 
 class WorkoutsPage extends StatefulWidget {
   final Map themeColors;
@@ -13,32 +14,6 @@ class WorkoutsPage extends StatefulWidget {
 }
 
 class _WorkoutsPageState extends State<WorkoutsPage> {
-
-  Map codeToType = {
-    "Ba" : "Barbell",
-    "Bo" : "Bodyweight",
-    "Ca" : "Cable",
-    "Du" : "Dumbbell",
-    "Ma" : "Machine",
-    "Mi" : "Misc",
-  };
-  
-  Map codeToMuscle = {
-    "Ab" : "Abs",
-    "Ba" : "Back",
-    "Bi" : "Biceps",
-    "Ca" : "Calves",
-    "Ch" : "Chest",
-    "Fo" : "Forearms",
-    "Gl" : "Glutes",
-    "Ha" : "Hamstrings",
-    "Ne" : "Neck",
-    "Qu" : "Quadriceps",
-    "Sh" : "Shoulders",
-    "Tr" : "Triceps",
-  };
-  
-
   Map<String, String> codeToTypeMuscle(String code) {
     String type = codeToType[code.split("")[0] + code.split("")[1]];
     String muscle = (codeToMuscle[code.split("")[2] + code.split("")[3]]).toString();
@@ -70,7 +45,10 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               ),
               SizedBox(
                 width: 50,
-                child: Text("#${workout["split"][0]} #${workout["split"][1]}", textAlign: TextAlign.right, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Icon"])),
+                child: Text("#${workout["split"][0]} #${workout["split"][1]}",
+                  textAlign: TextAlign.right,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["LightIcon"])
+                ),
               ),
             ],
           ),
@@ -90,8 +68,13 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
-                  width: 230,
+                  width: 200,
                   child: Text(workout["content"][i]["name"], style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                ),
+                const SizedBox(width: 20),
+                SizedBox(
+                  width: 25,
+                  child: Icon(typeToIcon[codeToTypeMuscle(workout["content"][i]["code"])["type"]], color: themeColors["DarkIcon"]),
                 ),
               ],
             ),
@@ -111,18 +94,19 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               children: <Widget>[
                 const SizedBox(width: 20),
                 SizedBox(
-                  width: 20,
+                  width: 25,
                   //* remove warm up sets
-                  child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                  child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 17, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
-                  width: 350,
+                  width: 345,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("${workout["content"][i]["name"]} (${codeToTypeMuscle(workout["content"][i]["code"])["type"]})", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
-                      Text((codeToTypeMuscle(workout["content"][i]["code"])["muscle"]).toString(), style: TextStyle(fontSize: 16, color: themeColors["Icon"])),
+                      const SizedBox(height: 3),
+                      Text((codeToTypeMuscle(workout["content"][i]["code"])["muscle"]).toString(), style: TextStyle(fontSize: 15, color: themeColors["Primary"])),
                     ],
                   ),
                 ),
