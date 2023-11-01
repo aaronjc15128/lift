@@ -115,6 +115,32 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
           );
           longcontent.add(const SizedBox(height: 20));
         }
+        longcontent.add(const SizedBox(height: 150));
+        longcontent.add(
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+            ),
+            onPressed: () {},
+            child: Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(12),
+              width: 160,
+              height: 45,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text("Start Workout", style: TextStyle(color: themeColors["Text"])),
+            ),
+          ),
+        );
+      
 
 
         // add full button to page
