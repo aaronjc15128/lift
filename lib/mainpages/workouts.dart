@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../inaworkout.dart';
+
 import '../theme_colors.dart';
 import '../background.dart';
 import '../storage/workout_list.dart';
@@ -122,7 +124,9 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               elevation: 0,
               backgroundColor: Colors.transparent,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InAWorkoutPage(workoutname: workout["name"])));
+            },
             child: Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(12),
