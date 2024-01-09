@@ -15,3 +15,13 @@ Map themeColors = {
   "DarkIcon"    : const Color(0x13FFFFFF),
   "LightIcon"   : const Color(0x3BFFFFFF),
 };
+
+/*
+Map themeColors = {
+  "Text"        : const Color(0xFFFFFFFF),
+  "Background"  : const Color(0xFF0F0F0F),
+  "Primary"     : const Color(0xFFACBFDD),
+  "Secondary"   : const Color(0xFF454F63),
+  "Accent"      : const Color(0xFF11C897),
+}
+*/
