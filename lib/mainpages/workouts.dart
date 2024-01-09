@@ -125,7 +125,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               backgroundColor: Colors.transparent,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => InAWorkoutPage(workoutname: workout["name"])));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InAWorkoutPage(workout: workout)));
             },
             child: Container(
               alignment: Alignment.center,

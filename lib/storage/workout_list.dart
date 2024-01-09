@@ -11,7 +11,6 @@ List workoutList = [
       {'code':'BoTr', 'name':'Diamond Push Up', 'sets':['w', 'f', 'f', 'f']},
     ],
   },
-
   {
     'name':'Pull Day',
     'split':[2, 6],

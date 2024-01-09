@@ -1,48 +1,50 @@
 import 'package:flutter/material.dart';
 
-import 'storage/workout_list.dart';
-
 import '../theme_colors.dart';
 import '../background.dart';
 
 class InAWorkoutPage extends StatelessWidget {
-  final String workoutname;
-  const InAWorkoutPage({Key? key, required this.workoutname}) : super(key: key);
+  final Map workout;
+  const InAWorkoutPage({Key? key, required this.workout}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Lift",
       theme: ThemeData(fontFamily: "Inter"),
-      home: App(workoutname: workoutname),
+      home: App(workout: workout),
     );
   }
 }
 
 class App extends StatefulWidget {
-  final String workoutname;
-  const App({Key? key, required this.workoutname}) : super(key: key);
+  final Map workout;
+  const App({Key? key, required this.workout}) : super(key: key);
 
   @override
   // ignore: no_logic_in_create_state
-  State<App> createState() => _AppState(workoutname: workoutname);
+  State<App> createState() => _AppState(workout: workout);
 }
 
 class _AppState extends State<App> {
-  final String workoutname;
-  _AppState({required this.workoutname});
+  final Map workout;
+  _AppState({required this.workout});
 
-  late Map workout;
+  List<Widget> widgets = <Widget>[];
 
   @override
   void initState() {
     super.initState();
 
-    for (var i = 0; i < workoutList.length; i++) {
-      if (workoutList[i]["name"] == workoutname) {
-        workout = workoutList[i];
+    setState(() {
+      widgets.add(const SizedBox(height: 130));
+      for (var i = 0; i < workout["content"].length; i++) {
+        widgets.add(
+          Text(workout["content"][i], style: TextStyle(fontSize: 22, color: themeColors["Text"]))
+        );
       }
-    }
+    });
+    
   }
 
 
@@ -56,7 +58,7 @@ class _AppState extends State<App> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: themeColors["Text"]),
-        title: Text("inaworkout.dart", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+        title: Text(workout["name"], style: TextStyle(fontSize: 22, color: themeColors["Text"])),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -71,10 +73,7 @@ class _AppState extends State<App> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           
-          children: <Widget>[
-            const SizedBox(height: 80),
-            
-          ],
+          children: widgets,
         ),
       ),
     );
