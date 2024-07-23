@@ -1,40 +1,47 @@
 import 'package:flutter/material.dart';
 
+import '../storage/workout_list.dart';
 import '../theme_colors.dart';
 import '../background.dart';
 
+
+// ? not needed
 class InAWorkoutPage extends StatelessWidget {
-  final Map workout;
-  const InAWorkoutPage({Key? key, required this.workout}) : super(key: key);
+  final int workoutIndex;
+  const InAWorkoutPage({Key? key, required this.workoutIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Lift",
       theme: ThemeData(fontFamily: "Inter"),
-      home: App(workout: workout),
+      home: App(workoutIndex: workoutIndex),
     );
   }
 }
 
 class App extends StatefulWidget {
-  final Map workout;
-  const App({Key? key, required this.workout}) : super(key: key);
+  final int workoutIndex;
+  const App({Key? key, required this.workoutIndex}) : super(key: key);
 
   @override
   // ignore: no_logic_in_create_state
-  State<App> createState() => _AppState(workout: workout);
+  State<App> createState() => _AppState(workoutIndex: workoutIndex);
 }
 
 class _AppState extends State<App> {
-  final Map workout;
-  _AppState({required this.workout});
+  final int workoutIndex;
+  _AppState({required this.workoutIndex});
 
+
+  late Map workout;
   List<Widget> widgets = <Widget>[];
 
   @override
   void initState() {
     super.initState();
+
+    workout = workoutList[workoutIndex];
 
     setState(() {
       widgets.add(const SizedBox(height: 130));
