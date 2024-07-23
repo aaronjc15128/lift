@@ -42,11 +42,11 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
           Row(
             children: <Widget>[
               SizedBox(
-                width: 230,
+                width: 200,
                 child: Text(workout["name"], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Text"])),
               ),
               SizedBox(
-                width: 50,
+                width: 70,
                 child: Text("#${workout["split"][0]} #${workout["split"][1]}",
                   textAlign: TextAlign.right,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["LightIcon"])
@@ -65,12 +65,12 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               children: <Widget>[
                 SizedBox(
                   width: 20,
-                  //* remove warm up sets
+                  // ~ remove warm up sets
                   child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 14, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
-                  width: 200,
+                  width: 185,
                   child: Text(workout["content"][i]["name"], style: TextStyle(fontSize: 14, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
