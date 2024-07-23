@@ -9,7 +9,7 @@ import '../conversions.dart';
 
 class ExercisesPage extends StatefulWidget {
   final Map themeColors;
-  const ExercisesPage({Key? key, required this.themeColors}) : super(key: key);
+  const ExercisesPage({super.key, required this.themeColors});
 
   @override
   State<ExercisesPage> createState() => _ExercisesPageState();
@@ -73,7 +73,7 @@ class Exercise extends StatelessWidget {
   final String name;
   final Icon tailIcon;
   final Map info;
-  const Exercise({Key? key, /*required this.leadIcon,*/ required this.name, required this.tailIcon, required this.info}) : super(key: key);
+  const Exercise({super.key, /*required this.leadIcon,*/ required this.name, required this.tailIcon, required this.info});
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class Exercise extends StatelessWidget {
 class ExerciseView extends StatelessWidget {
   final String name;
   final Map info;
-  const ExerciseView({Key? key, required this.name, required this.info}) : super(key: key);
+  const ExerciseView({super.key, required this.name, required this.info});
 
   @override
   Widget build(BuildContext context) {

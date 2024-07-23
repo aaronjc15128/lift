@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class StatsPage extends StatelessWidget {
   final Map themeColors;
-  const StatsPage({Key? key, required this.themeColors}) : super(key: key);
+  const StatsPage({super.key, required this.themeColors});
   
   @override
   Widget build(BuildContext context) {

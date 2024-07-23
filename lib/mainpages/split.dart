@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SplitPage extends StatelessWidget {
   final Map themeColors;
-  const SplitPage({Key? key, required this.themeColors}) : super(key: key);
+  const SplitPage({super.key, required this.themeColors});
   
   @override
   Widget build(BuildContext context) {

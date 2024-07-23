@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HistoryPage extends StatelessWidget {
   final Map themeColors;
-  const HistoryPage({Key? key, required this.themeColors}) : super(key: key);
+  const HistoryPage({super.key, required this.themeColors});
   
   @override
   Widget build(BuildContext context) {

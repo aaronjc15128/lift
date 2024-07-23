@@ -9,7 +9,7 @@ import '../conversions.dart';
 
 class WorkoutsPage extends StatefulWidget {
   final Map themeColors;
-  const WorkoutsPage({Key? key, required this.themeColors}) : super(key: key);
+  const WorkoutsPage({super.key, required this.themeColors});
 
   @override
   State<WorkoutsPage> createState() => _WorkoutsPageState();
@@ -191,7 +191,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
 class WorkoutPreview extends StatelessWidget {
   final String name;
   final List<Widget> longcontent;
-  const WorkoutPreview({Key? key, required this.name, required this.longcontent}) : super(key: key);
+  const WorkoutPreview({super.key, required this.name, required this.longcontent});
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ import '../background.dart';
 // ? not needed
 class InAWorkoutPage extends StatelessWidget {
   final int workoutIndex;
-  const InAWorkoutPage({Key? key, required this.workoutIndex}) : super(key: key);
+  const InAWorkoutPage({super.key, required this.workoutIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class InAWorkoutPage extends StatelessWidget {
 
 class App extends StatefulWidget {
   final int workoutIndex;
-  const App({Key? key, required this.workoutIndex}) : super(key: key);
+  const App({super.key, required this.workoutIndex});
 
   @override
   // ignore: no_logic_in_create_state
