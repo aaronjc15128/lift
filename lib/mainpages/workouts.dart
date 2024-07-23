@@ -97,7 +97,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                 const SizedBox(width: 20),
                 SizedBox(
                   width: 25,
-                  //* remove warm up sets
+                  // ~ remove warm up sets
                   child: Text("${workout["content"][i]["sets"].where((item) => item != "w").toList().length}x", style: TextStyle(fontSize: 17, color: themeColors["Text"])),
                 ),
                 const SizedBox(width: 20),
@@ -106,9 +106,14 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${workout["content"][i]["name"]} (${codeToTypeMuscle(workout["content"][i]["code"])["type"]})", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                      Text("${workout["content"][i]["name"]}", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
                       const SizedBox(height: 3),
-                      Text((codeToTypeMuscle(workout["content"][i]["code"])["muscle"]).toString(), style: TextStyle(fontSize: 15, color: themeColors["Primary"])),
+                      Row(
+                        children: [
+                          Text("${codeToTypeMuscle(workout["content"][i]["code"])["type"]} ", style: TextStyle(fontSize: 15, color: themeColors["Primary"])),
+                          Text("${codeToTypeMuscle(workout["content"][i]["code"])["muscle"]}", style: TextStyle(fontSize: 15, color: themeColors["Accent"])),
+                        ],
+                      )
                     ],
                   ),
                 ),
