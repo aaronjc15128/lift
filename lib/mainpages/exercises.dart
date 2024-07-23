@@ -97,11 +97,11 @@ class Exercise extends StatelessWidget {
                   width: 50,
                 ),
                 SizedBox(
-                  width: 230,
+                  width: 210,
                   child: Text(name, style: TextStyle(color: themeColors["Text"])),
                 ),
                 SizedBox(
-                  width: 50,
+                  width: 60,
                   child: tailIcon
                 ),
               ],
