@@ -108,27 +108,25 @@ class _AppState extends State<App> {
           backgroundColor: themeColors["Background"],
           child: Column(
             children: <Widget>[
-              DrawerHeader(
-                child: Column(
-                  children: <Widget>[
-                    const SizedBox(height: 12),
-                    Center(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: const Image(
-                          image: AssetImage("assets/images/icon_512.png"),
-                          height: 48,
-                          width: 48,
-                        ),
-                      ),
+              const SizedBox(height: 60),
+              Column(
+                children: <Widget>[
+                  const SizedBox(height: 12),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: const Image(
+                      image: AssetImage("assets/images/icon_512.png"),
+                      height: 48,
+                      width: 48,
                     ),
-                    const SizedBox(height: 12),
-                    Text("Lift", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
-                    const SizedBox(height: 3),
-                    Text("Aaron Chauhan", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 12),
+                  Text("Lift", style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+                  const SizedBox(height: 3),
+                  Text("aaronjc15128", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+                ],
               ),
+              const SizedBox(height: 30),
               ListTile(
                 leading: Icon(Icons.show_chart_rounded, color: themeColors["Text"],),
                 title: Text("Get PRO", style: TextStyle(color: themeColors["Text"])),
