@@ -5,7 +5,8 @@ import '../theme_colors.dart';
 import '../background.dart';
 
 
-// ? not needed
+/* 
+? not needed
 class InAWorkoutPage extends StatelessWidget {
   final int workoutIndex;
   const InAWorkoutPage({super.key, required this.workoutIndex});
@@ -19,35 +20,43 @@ class InAWorkoutPage extends StatelessWidget {
     );
   }
 }
+*/ 
 
-class App extends StatefulWidget {
+class InAWorkoutPage extends StatefulWidget {
   final int workoutIndex;
-  const App({super.key, required this.workoutIndex});
+  const InAWorkoutPage({super.key, required this.workoutIndex});
 
   @override
-  // ignore: no_logic_in_create_state
-  State<App> createState() => _AppState(workoutIndex: workoutIndex);
+  State<InAWorkoutPage> createState() => _InAWorkoutPageState();
 }
 
-class _AppState extends State<App> {
-  final int workoutIndex;
-  _AppState({required this.workoutIndex});
+class _InAWorkoutPageState extends State<InAWorkoutPage> {
 
-
-  late Map workout;
+  late Map<String, Object> workout;
   List<Widget> widgets = <Widget>[];
 
   @override
   void initState() {
     super.initState();
 
-    workout = workoutList[workoutIndex];
+    workout = workoutList[widget.workoutIndex];
+
+    // Safely cast 'content' to a List
+    List<dynamic> workoutContent = workout['content'] as List<dynamic>;
 
     setState(() {
       widgets.add(const SizedBox(height: 130));
-      for (var i = 0; i < workout["content"].length; i++) {
+      for (var i = 0; i < workoutContent.length; i++) {
+        Map<String, dynamic> exercise = workoutContent[i] as Map<String, dynamic>;
         widgets.add(
-          Text(workout["content"][i], style: TextStyle(fontSize: 22, color: themeColors["Text"]))
+          Container(
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Column(
+              children: [
+                Text(exercise['name'].toString(), style: TextStyle(fontSize: 20, color: themeColors['Text'])),
+              ],
+            ),
+          ),
         );
       }
     });
@@ -65,7 +74,7 @@ class _AppState extends State<App> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(color: themeColors["Text"]),
-        title: Text(workout["name"], style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+        title: Text(workout["name"].toString(), style: TextStyle(fontSize: 22, color: themeColors["Text"])),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
