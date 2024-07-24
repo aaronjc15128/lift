@@ -31,13 +31,13 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
     
     for (var i = 0; i < workoutList.length; i++) {
       setState(() {
-        // set workout & create content/longcontent list
+        // ~ set workout & create content/longcontent list
         Map workout = workoutList[i];
         List<Widget> content = <Widget>[];
         List<Widget> longcontent = <Widget>[];
 
 
-        // add titles to content
+        // ~ add titles to content
         content.add(
           Row(
             children: <Widget>[
@@ -58,7 +58,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
         content.add(const SizedBox(height: 10));
 
 
-        // add sets to content
+        // ~ add sets to content
         for (var i = 0; i < workout["content"].length; i++) {
           content.add(
             Row(
@@ -88,7 +88,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
         }
 
 
-        // add sets to longcontent
+        // ~ add sets to longcontent
         longcontent.add(const SizedBox(height: 130));
         for (var i = 0; i < workout["content"].length; i++) {
           longcontent.add(
@@ -152,7 +152,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
       
 
 
-        // add full button to page
+        // ~ add full button to page
         workoutButtonsWidgets.add(
           ElevatedButton(
             onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => WorkoutPreview(name: workout["name"], longcontent: longcontent)));},
@@ -173,6 +173,58 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
         workoutButtonsWidgets.add(const SizedBox(height: 10));
       });
     }
+
+    setState(() {
+      workoutButtonsWidgets.add(
+        ElevatedButton(
+          onPressed: () {
+
+          },
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+          ),
+          child: Container(
+            decoration: BoxDecoration(color: themeColors["DarkBox"], borderRadius: const BorderRadius.all(Radius.circular(15))),
+            padding: const EdgeInsets.fromLTRB(30, 20, 20, 20),
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 270,
+                  child: Text("Create New Empty Workout", textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+      workoutButtonsWidgets.add(const SizedBox(height: 10));
+      workoutButtonsWidgets.add(
+        ElevatedButton(
+          onPressed: () {
+
+          },
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+          ),
+          child: Container(
+            decoration: BoxDecoration(color: themeColors["DarkBox"], borderRadius: const BorderRadius.all(Radius.circular(15))),
+            padding: const EdgeInsets.fromLTRB(30, 20, 20, 20),
+            margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 270,
+                  child: Text("Create New Empty Template", textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    });
   }
   
   @override

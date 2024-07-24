@@ -174,7 +174,7 @@ class _AppState extends State<App> {
             height: 90,
             margin: const EdgeInsets.fromLTRB(15, 0, 15, 10),
             decoration: BoxDecoration(
-              color: themeColors["Box"],
+              color: themeColors["DarkBox"],
               borderRadius: const BorderRadius.all(Radius.circular(25))
             ),
             child: Theme(
