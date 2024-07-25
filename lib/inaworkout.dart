@@ -151,10 +151,11 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false, // Prevents the background from squashing upwards
       extendBodyBehindAppBar: true,
-
+      
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -165,24 +166,24 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_rounded)
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
       ),
 
       body: Background(
-        page: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-
-          children: <Widget>[
-            SizedBox(height: 888,
-              child: SafeArea(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: widgets,
+        page: Stack(
+          children: [
+            Column(
+              children: [
+                SizedBox(height: 130), // Adjust or remove this as needed
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: widgets,
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
