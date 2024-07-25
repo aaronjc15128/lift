@@ -36,6 +36,17 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   late Map<String, Object> workout;
   List<Widget> widgets = <Widget>[];
 
+  late List<List<bool>> done;
+
+  Icon checkmark(int exerciseIndex, int setIndex) {
+    if (done[exerciseIndex][setIndex]) {
+      return const Icon(Icons.check_circle_rounded);
+    }
+    else {
+      return const Icon(Icons.check_rounded);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -45,6 +56,13 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
     workout = workoutList[widget.workoutIndex];
 
     List<dynamic> workoutContent = workout['content'] as List<dynamic>;
+
+    done = List.generate(workoutContent.length, (index) => []);
+    for (var n = 0; n < workoutContent.length; n++) {
+      for (var v = 0; v < workoutContent[n]['sets'].length; v++) {
+        done[n].add(false);
+      }
+    }
 
     setState(() {
       widgets.add(const SizedBox(height: 60));
@@ -58,10 +76,11 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
 
               children: [
-                Text(exercise['name'].toString(), style: TextStyle(fontSize: 18, color: themeColors['Text'])),
+                Text(exercise['name'].toString(), style: TextStyle(fontSize: 16, color: themeColors['Text'])),
                 const SizedBox(height: 10),
                 Row(
-                  children: [
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <SizedBox>[
                     const SizedBox(width: 10),
                     SizedBox(
                       width: 30,
@@ -92,17 +111,31 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
         );
 
         List<dynamic> sets = workoutContent[i]['sets'] as List<dynamic>;
+        late Color setcolor;
+        int count = 0;
+
         for (var j = 0; j < exercise['sets'].length; j++) {
           String set = sets[j] as String;
+          if (set == 'n') {
+            count++;
+            set = count.toString();
+            setcolor = themeColors['Primary'];
+          }
+          else if (set == 'w') {
+            setcolor = themeColors['Primary'];
+          }
+          else if (set == 'f') {
+            setcolor = themeColors['Accent'];
+          }
+
           widgets.add(
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-
               children: [
                 const SizedBox(width: 10),
-                const SizedBox(
+                SizedBox(
                   width: 30,
-                  child: Icon(Icons.add),
+                  child: Text(set, textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: setcolor)),
                 ),
                 const SizedBox(width: 20),
                 SizedBox(
@@ -151,9 +184,17 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                   ),
                 ),
                 const SizedBox(width: 20),
-                const SizedBox(
+                SizedBox(
                   width: 30,
-                  child: Icon(Icons.add),
+                  child: IconButton(
+                    icon: checkmark(i, j),
+                    iconSize: 20,
+                    onPressed: () {
+                      setState(() {
+                        done[i][j] = !done[i][j];
+                      });
+                    },
+                  ),
                 ),
                 const SizedBox(width: 10),
               ],
