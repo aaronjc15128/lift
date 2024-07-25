@@ -47,7 +47,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
     List<dynamic> workoutContent = workout['content'] as List<dynamic>;
 
     setState(() {
-      widgets.add(const SizedBox(height: 80));
+      widgets.add(const SizedBox(height: 60));
       for (var i = 0; i < workoutContent.length; i++) {
         Map<String, dynamic> exercise = workoutContent[i] as Map<String, dynamic>;
         widgets.add(
@@ -86,72 +86,82 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                Row(
-                  children: [
-                    const SizedBox(width: 10),
-                    const SizedBox(
-                      width: 30,
-                      child: Icon(Icons.add),
-                    ),
-                    const SizedBox(width: 20),
-                    SizedBox(
-                      width: 120,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: themeColors["LightBox"],
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: TextField(
-                          //controller: controller,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'Inter', color: themeColors['Text']),
-                          cursorColor: themeColors['Text'],
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: '10',
-                            hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['Background']),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    SizedBox(
-                      width: 120,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: themeColors["LightBox"],
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: TextField(
-                          //controller: controller,
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontFamily: 'Inter', color: themeColors['Text']),
-                          cursorColor: themeColors['Text'],
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: '8',
-                            hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['Background']),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    const SizedBox(
-                      width: 30,
-                      child: Icon(Icons.add),
-                    ),
-                    const SizedBox(width: 10),
-                  ],
-                ),
-                const SizedBox(height: 60),
               ],
             ),
           ),
         );
+
+        List<dynamic> sets = workoutContent[i]['sets'] as List<dynamic>;
+        for (var j = 0; j < exercise['sets'].length; j++) {
+          String set = sets[j] as String;
+          widgets.add(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                const SizedBox(width: 10),
+                const SizedBox(
+                  width: 30,
+                  child: Icon(Icons.add),
+                ),
+                const SizedBox(width: 20),
+                SizedBox(
+                  width: 120,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: themeColors["LightBox"],
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: TextField(
+                      //controller: controller,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontFamily: 'Inter', color: themeColors['Text']),
+                      cursorColor: themeColors['Text'],
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: '10',
+                        hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['Background']),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                SizedBox(
+                  width: 120,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: themeColors["LightBox"],
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: TextField(
+                      //controller: controller,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(3)],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontFamily: 'Inter', color: themeColors['Text']),
+                      cursorColor: themeColors['Text'],
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: '8',
+                        hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['Background']),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                const SizedBox(
+                  width: 30,
+                  child: Icon(Icons.add),
+                ),
+                const SizedBox(width: 10),
+              ],
+            ),
+          );
+          widgets.add(const SizedBox(height: 10));
+        }
+        widgets.add(const SizedBox(height: 50));
       }
     });
     
