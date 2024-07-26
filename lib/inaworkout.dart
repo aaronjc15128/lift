@@ -7,6 +7,7 @@ import 'storage/workout_list.dart';
 import 'storage/preferences.dart';
 import 'theme_colors.dart';
 import 'background.dart';
+import 'conversions.dart';
 
 class InAWorkoutPage extends StatefulWidget {
   final int workoutIndex;
@@ -30,6 +31,8 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   }
 
   void finishWorkout() {
+    
+    // ~ data to add to workout_history.dart
     epochEndTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     int epochElapsedTime = epochEndTime - epochStartTime;
     
@@ -52,7 +55,36 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
       },
     );
 
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const MainApp()));
+    //~ data to send to WorkoutComplete()
+
+    Map<String, Object> sendWorkout = workoutHistory[0];
+    String sendCode = sendWorkout['datetime'].toString();
+    String sendHour = sendCode.substring(0, 2);
+    String sendMinute = sendCode.substring(2, 4);
+    String sendWeekdaynum = sendCode.substring(4, 6);
+    String sendDay = sendCode.substring(6, 8);
+    String sendMonthnum = sendCode.substring(8, 10);
+    String sendYear = sendCode.substring(10, 14);
+    String sendWeekday = numToWeekday[sendWeekdaynum].toString();
+    String sendMonth = numToMonth[sendMonthnum].toString();
+    String sendDatetimetext = '$sendWeekday $sendDay $sendMonth $sendYear $sendHour:$sendMinute';
+
+    int sendSeconds = sendWorkout['time'] as int;
+    int sendHours = sendSeconds ~/ 3600;
+    int sendMinutes = (sendSeconds % 3600) ~/ 60;
+    String sendTimetext = '${sendHours}h ${sendMinutes.toString().padLeft(2, '0')}m';
+
+    String sendSetstext = '${sendWorkout['sets'].toString()} sets';
+
+    String sendWorkoutnumber = workoutHistory.length.toString();
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WorkoutComplete(
+      workout: sendWorkout,
+      datetimeText: sendDatetimetext,
+      timeText: sendTimetext,
+      setsText: sendSetstext,
+      workoutNumber: sendWorkoutnumber,
+    )));
   }
 
   @override
@@ -310,6 +342,92 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class WorkoutComplete extends StatelessWidget {
+  final Map<String, Object> workout;
+  final String datetimeText;
+  final String timeText;
+  final String setsText;
+  final String workoutNumber;
+  const WorkoutComplete({super.key, required this.workout, required this.datetimeText, required this.timeText, required this.setsText, required this.workoutNumber});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Lift",
+      theme: ThemeData(fontFamily: "Inter"),
+      
+      home: Scaffold(
+        extendBodyBehindAppBar: true,
+
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          iconTheme: IconThemeData(color: themeColors["Text"]),
+          title: Text('Workout Complete', style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+          centerTitle: true,
+        ),
+
+        body: Background(
+          page: Column(
+            children: [
+              const SizedBox(height: 130),
+              Text('Added to History', style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+              const SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(color: themeColors["DarkBox"], borderRadius: const BorderRadius.all(Radius.circular(15))),
+                padding: const EdgeInsets.fromLTRB(30, 20, 20, 20),
+                margin: const EdgeInsets.fromLTRB(45, 0, 45, 0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: <Widget>[
+                        SizedBox(
+                          width: 200,
+                          child: Text(workout['name'].toString(), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["Text"])),
+                        ),
+                        SizedBox(
+                          width: 70,
+                          child: Text("#${(workout['split'] as List<int>)[0]} #${(workout['split'] as List<int>)[1]}",
+                            textAlign: TextAlign.right,
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: themeColors["LightIcon"])
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      children: <Widget>[
+                        SizedBox(
+                          width: 150,
+                          child: Text(datetimeText, style: TextStyle(fontSize: 12, color: themeColors["Text"])),
+                        ),
+                        SizedBox(
+                          width: 120,
+                          child: Text(timeText+(' '*5)+setsText, textAlign: TextAlign.right, style: TextStyle(fontSize: 12, color: themeColors["Text"])),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 30),
+              Text("that's workout number", style: TextStyle(fontSize: 16, color: themeColors["Text"])),
+              const SizedBox(height: 10),
+              Text(workoutNumber, style: TextStyle(fontSize: 22, color: themeColors["Text"])),
+              const SizedBox(height: 300),
+              IconButton(
+                icon: Icon(Icons.check_rounded, color: themeColors['Text'],),
+                iconSize: 25,
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const MainApp()));},
+              ),
+            ],
+          ),
         ),
       ),
     );
