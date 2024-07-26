@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../storage/workout_list.dart';
-import '../storage/preferences.dart';
-import '../theme_colors.dart';
-import '../background.dart';
+import 'main.dart';
+import 'storage/workout_list.dart';
+import 'storage/preferences.dart';
+import 'theme_colors.dart';
+import 'background.dart';
 
 class InAWorkoutPage extends StatefulWidget {
   final int workoutIndex;
@@ -22,6 +23,10 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
     setState(() {
       done[exerciseIndex][setIndex] = !done[exerciseIndex][setIndex];
     });
+  }
+
+  void finishWorkout() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const MainApp()));
   }
 
   @override
@@ -187,6 +192,58 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
       }
       widgets.add(const SizedBox(height: 50));
     }
+    widgets.add(const SizedBox(height: 30));
+    widgets.add(
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return Dialog(
+                backgroundColor: Colors.transparent,
+                child: AlertDialog(
+                  backgroundColor: themeColors["Background"],
+                  title: Text("Finish Workout?", style: TextStyle(fontSize: 24, color: themeColors["Text"])),
+                  content: Text("Are you sure you want to finish this workout?", style: TextStyle(fontSize: 12, color: themeColors["Text"])),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {Navigator.of(context).pop();},
+                      child: Text("Cancel", style: TextStyle(color: themeColors["Primary"])),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        finishWorkout();
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("Finish", style: TextStyle(color: themeColors["Accent"])),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+        child: Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(12),
+          width: 160,
+          height: 45,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: <Color>[themeColors["Secondary"], themeColors["Accent"]],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+            ),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Text("Finish Workout", style: TextStyle(color: themeColors["Text"])),
+        ),
+      ),
+    );
     widgets.add(const SizedBox(height: 400));
     return widgets;
   }
