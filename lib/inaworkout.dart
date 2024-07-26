@@ -30,7 +30,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   }
 
   void finishWorkout() {
-    epochStartTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+    epochEndTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     int epochElapsedTime = epochEndTime - epochStartTime;
     
     DateTime now = DateTime.now();
@@ -42,7 +42,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
     String minutes = now.minute.toString().padLeft(2, '0');
     String datetimeCode = hours + minutes + weekday + day + month + year;
 
-    workoutHistory.add(
+    workoutHistory.insert(0,
       <String, Object>{
         'name' : workout['name'].toString(),
         'split' : workout['split'] as List<int>,
