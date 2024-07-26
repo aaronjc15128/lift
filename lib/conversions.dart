@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Map typeToIcon = {
+Map<String, IconData> typeToIcon = {
   "Barbell"    : Icons.bar_chart_rounded,
   "Bodyweight" : Icons.person_rounded,
   "Cable"      : Icons.cable_rounded,
@@ -9,7 +9,7 @@ Map typeToIcon = {
   "Misc"       : Icons.question_mark_rounded,
 };
 
-Map codeToType = {
+Map<String, String> codeToType = {
   "Ba" : "Barbell",
   "Bo" : "Bodyweight",
   "Ca" : "Cable",
@@ -18,7 +18,7 @@ Map codeToType = {
   "Mi" : "Misc",
 };
   
-Map codeToMuscle = {
+Map<String, String> codeToMuscle = {
   "Ab" : "Abs",
   "Ba" : "Back",
   "Bi" : "Biceps",
@@ -31,4 +31,29 @@ Map codeToMuscle = {
   "Qu" : "Quadriceps",
   "Sh" : "Shoulders",
   "Tr" : "Triceps",
+};
+
+Map<String, String> numToWeekday = {
+  '01': 'Mon',
+  '02': 'Tue',
+  '03': 'Wed',
+  '04': 'Thu',
+  '05': 'Fri',
+  '06': 'Sat',
+  '07': 'Sun',
+};
+
+Map<String, String> numToMonth = {
+  '01': 'Jan',
+  '02': 'Feb',
+  '03': 'Mar',
+  '04': 'Apr',
+  '05': 'May',
+  '06': 'Jun',
+  '07': 'Jul',
+  '08': 'Aug',
+  '09': 'Sep',
+  '10': 'Oct',
+  '11': 'Nov',
+  '12': 'Dec',
 };

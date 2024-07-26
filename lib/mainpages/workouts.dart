@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../inaworkout.dart';
-
 import '../theme_colors.dart';
 import '../background.dart';
 import '../storage/workout_list.dart';
@@ -17,8 +16,8 @@ class WorkoutsPage extends StatefulWidget {
 
 class _WorkoutsPageState extends State<WorkoutsPage> {
   Map<String, String> codeToTypeMuscle(String code) {
-    String type = codeToType[code.split("")[0] + code.split("")[1]];
-    String muscle = (codeToMuscle[code.split("")[2] + code.split("")[3]]).toString();
+    String type = codeToType[code.split("")[0] + code.split("")[1]].toString();
+    String muscle = codeToMuscle[code.split("")[2] + code.split("")[3]].toString();
 
     return {"type": type, "muscle": muscle};
   }
@@ -192,7 +191,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               children: [
                 SizedBox(
                   width: 270,
-                  child: Text("Create New Empty Workout", textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                  child: Text("Create New Empty Template", textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: themeColors["Text"])),
                 ),
               ],
             ),
@@ -217,7 +216,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
               children: [
                 SizedBox(
                   width: 270,
-                  child: Text("Create New Empty Template", textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: themeColors["Text"])),
+                  child: Text("Create New Empty Workout", textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: themeColors["Text"])),
                 ),
               ],
             ),

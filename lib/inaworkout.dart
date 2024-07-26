@@ -43,9 +43,9 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
     String datetimeCode = hours + minutes + weekday + day + month + year;
 
     workoutHistory.add(
-      {
-        'name' : workout['name'],
-        'split' : workout['split'],
+      <String, Object>{
+        'name' : workout['name'].toString(),
+        'split' : workout['split'] as List<int>,
         'datetime' : datetimeCode,
         'time' : epochElapsedTime,
         'sets' : done.expand((list) => list).where((element) => element).length,
@@ -279,7 +279,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false, // Prevents the background from squashing upwards
+      resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
