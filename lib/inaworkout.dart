@@ -37,14 +37,13 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   List<Widget> widgets = <Widget>[];
 
   late List<List<bool>> done;
-
-  Icon checkmark(int exerciseIndex, int setIndex) {
-    if (done[exerciseIndex][setIndex]) {
-      return const Icon(Icons.check_circle_rounded);
-    }
-    else {
-      return const Icon(Icons.check_rounded);
-    }
+  void checkmarkToggle(int exerciseIndex, int setIndex) {
+    setState(() {
+      done[exerciseIndex][setIndex] = !done[exerciseIndex][setIndex];
+      print(done);
+      print(exerciseIndex);
+      print(setIndex);
+    });
   }
 
   @override
@@ -128,6 +127,8 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
             setcolor = themeColors['Accent'];
           }
 
+          //Icon checkmarkIcon = checkmark(i, j);
+
           widgets.add(
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -187,12 +188,10 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                 SizedBox(
                   width: 30,
                   child: IconButton(
-                    icon: checkmark(i, j),
+                    icon: Icon(done[i][j] ? Icons.check_circle_rounded : Icons.check_rounded),
                     iconSize: 20,
                     onPressed: () {
-                      setState(() {
-                        done[i][j] = !done[i][j];
-                      });
+                      checkmarkToggle(i, j);
                     },
                   ),
                 ),
