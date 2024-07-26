@@ -14,6 +14,9 @@ Map themeColors = {
   "Icon"        : const Color(0x28FFFFFF),
   "DarkIcon"    : const Color(0x13FFFFFF),
   "LightIcon"   : const Color(0x3BFFFFFF),
+
+  "HintText60"  : const Color(0x99FFFFFF),
+  "HintText30"  : const Color(0x4BFFFFFF),
 };
 
 /*

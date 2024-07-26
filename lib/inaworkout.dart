@@ -81,22 +81,22 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                   const SizedBox(width: 10),
                   SizedBox(
                     width: 30,
-                    child: Text("set", textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: themeColors['Background'])),
+                    child: Text("set", textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: themeColors['HintText60'])),
                   ),
                   const SizedBox(width: 20),
                   SizedBox(
                     width: 120,
-                    child: Text("weight in ${preferences['weight_unit']}", textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: themeColors['Background'])),
+                    child: Text("weight in ${preferences['weight_unit']}", textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: themeColors['HintText60'])),
                   ),
                   const SizedBox(width: 10),
                   SizedBox(
                     width: 120,
-                    child: Text("reps", textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: themeColors['Background'])),
+                    child: Text("reps", textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: themeColors['HintText60'])),
                   ),
                   const SizedBox(width: 20),
                   SizedBox(
                     width: 30,
-                    child: Text("done", textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: themeColors['Background'])),
+                    child: Text("done", textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: themeColors['HintText60'])),
                   ),
                   const SizedBox(width: 10),
                 ],
@@ -108,7 +108,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
       );
 
       List<dynamic> sets = workoutContent[i]['sets'] as List<dynamic>;
-      late Color setcolor;
+      late Color setColor;
       int count = 0;
 
       for (var j = 0; j < exercise['sets'].length; j++) {
@@ -116,13 +116,13 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
         if (set == 'n') {
           count++;
           set = count.toString();
-          setcolor = themeColors['Primary'];
+          setColor = themeColors['Primary'];
         }
         else if (set == 'w') {
-          setcolor = themeColors['Primary'];
+          setColor = themeColors['Primary'];
         }
         else if (set == 'f') {
-          setcolor = themeColors['Accent'];
+          setColor = themeColors['Accent'];
         }
 
         //Icon checkmarkIcon = checkmark(i, j);
@@ -134,14 +134,14 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
               const SizedBox(width: 10),
               SizedBox(
                 width: 30,
-                child: Text(set, textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: setcolor)),
+                child: Text(set, textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: setColor)),
               ),
               const SizedBox(width: 20),
               SizedBox(
                 width: 120,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: themeColors["LightBox"],
+                    color: done[i][j] ? Colors.transparent : themeColors["LightBox"],
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: TextField(
@@ -154,7 +154,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: '10',
-                      hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['Background']),
+                      hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['HintText30']),
                     ),
                   ),
                 ),
@@ -164,7 +164,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                 width: 120,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: themeColors["LightBox"],
+                    color: done[i][j] ? Colors.transparent : themeColors["LightBox"],
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: TextField(
@@ -177,7 +177,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: '8',
-                      hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['Background']),
+                      hintStyle: TextStyle(fontFamily: 'Inter', color: themeColors['HintText30']),
                     ),
                   ),
                 ),
@@ -186,7 +186,10 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
               SizedBox(
                 width: 30,
                 child: IconButton(
-                  icon: Icon(done[i][j] ? Icons.check_circle_rounded : Icons.check_rounded),
+                  icon: Icon(
+                    done[i][j] ? Icons.check_rounded : Icons.check_rounded,
+                    color: done[i][j] ? setColor : themeColors['HintText30'],
+                  ),
                   iconSize: 20,
                   onPressed: () {
                     checkmarkToggle(i, j);
@@ -201,6 +204,7 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
       }
       widgets.add(const SizedBox(height: 50));
     }
+    widgets.add(const SizedBox(height: 400));
     return widgets;
   }
 
