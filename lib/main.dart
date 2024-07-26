@@ -77,9 +77,6 @@ class _AppState extends State<App> {
       systemNavigationBarColor: Colors.black.withOpacity(0.002),
       systemNavigationBarIconBrightness: Brightness.light,
     ));
-
-    // inits go here
-
   }
 
   @override

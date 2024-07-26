@@ -6,23 +6,6 @@ import '../storage/preferences.dart';
 import '../theme_colors.dart';
 import '../background.dart';
 
-/* 
-? not needed
-class InAWorkoutPage extends StatelessWidget {
-  final int workoutIndex;
-  const InAWorkoutPage({super.key, required this.workoutIndex});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Lift",
-      theme: ThemeData(fontFamily: "Inter"),
-      home: App(workoutIndex: workoutIndex),
-    );
-  }
-}
-*/ 
-
 class InAWorkoutPage extends StatefulWidget {
   final int workoutIndex;
   const InAWorkoutPage({super.key, required this.workoutIndex});
