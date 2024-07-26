@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'main.dart';
+import 'storage/workout_history.dart';
 import 'storage/workout_list.dart';
 import 'storage/preferences.dart';
 import 'theme_colors.dart';
@@ -16,6 +17,9 @@ class InAWorkoutPage extends StatefulWidget {
 }
 
 class _InAWorkoutPageState extends State<InAWorkoutPage> {
+  late int epochStartTime;
+  late int epochEndTime;
+
   late Map<String, Object> workout;
   late List<List<bool>> done;
 
@@ -26,12 +30,36 @@ class _InAWorkoutPageState extends State<InAWorkoutPage> {
   }
 
   void finishWorkout() {
+    epochStartTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+    int epochElapsedTime = epochEndTime - epochStartTime;
+    
+    DateTime now = DateTime.now();
+    String weekday = "0${now.weekday}".toString();
+    String day = now.day.toString();
+    String month = now.month.toString().length == 1 ? '0${now.month}' : now.month.toString();
+    String year = now.year.toString();
+    String hours = now.hour.toString().padLeft(2, '0');
+    String minutes = now.minute.toString().padLeft(2, '0');
+    String datetimeCode = hours + minutes + weekday + day + month + year;
+
+    workoutHistory.add(
+      {
+        'name' : workout['name'],
+        'split' : workout['split'],
+        'datetime' : datetimeCode,
+        'time' : epochElapsedTime,
+        'sets' : done.expand((list) => list).where((element) => element).length,
+      },
+    );
+
     Navigator.push(context, MaterialPageRoute(builder: (context) => const MainApp()));
   }
 
   @override
   void initState() {
     super.initState();
+
+    epochStartTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
     //TextEditingController controller = TextEditingController();
 
